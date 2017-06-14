@@ -1,4 +1,6 @@
 import React, {Component} from 'react';
+import AppDispatcher from '../data/AppDispatcher.js';
+import {EmployeeStore} from '../data/EmployeeStore.js';
 
 export class EmployeeListItem extends Component {
   constructor(props) {
@@ -7,16 +9,26 @@ export class EmployeeListItem extends Component {
       employee: props.employee
     };
 
+    this.openEmployeeInfo = this.openEmployeeInfo.bind(this);
+  }
+
+  openEmployeeInfo() {
+    let data = {
+      eventName: "open-employee",
+      employeeId: this.state.employee.id // example data
+    }
+    AppDispatcher.dispatch(data);
   }
 
   render() {
     const employee = this.state.employee;
+    const openedEmployeeId = EmployeeStore.getOpenedEmployeeId();
     const skills = employee.skills.map(skill => <div className="list-item__skill" key={skill.id}>
       {skill.name}
     </div>)
 
     return (
-      <div className={employee.opened
+      <div onClick={this.openEmployeeInfo} className={employee.id == openedEmployeeId
         ? "list-item opened"
         : "list-item"}>
         <div className="list-item__avatar"></div>

@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 import {EmployeeListItem} from './EmployeeListItem.js';
+import {EmployeeStore} from '../data/EmployeeStore.js';
 
 export class EmployeeList extends Component {
   constructor(props) {
@@ -72,9 +73,17 @@ export class EmployeeList extends Component {
           profileFilledPercentage: 70,
           opened: false
         }
-      ]
+      ],
+      openedEmployee: null
     };
+
+    EmployeeStore.bind('change', this.listChanged);
   }
+
+
+  listChanged() {
+    console.log('Opened employee: ' + EmployeeStore.openedEmployeeId)
+  };
 
   render() {
 
