@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import {EmployeeList} from './EmployeeList.js'
 import {DetailedInfo} from './DetailedInfo.js'
 
@@ -10,9 +10,9 @@ export default class App extends Component {
           List
         </div>
         <div className="content">
-          <EmployeeList />
+          <EmployeeList/>
           <div className="detailed-info-area">
-            <DetailedInfo />
+            <DetailedInfo/>
           </div>
         </div>
       </div>
