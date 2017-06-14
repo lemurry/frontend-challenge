@@ -1,0 +1,47 @@
+.list-item {
+  $border-color: #d9d2d5;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: row;
+  padding: 34px 10px;
+  border-bottom: 3px solid $border-color;
+
+  &.opened {}
+
+  &:first-child {
+    border-top: 2px solid $border-color;
+  }
+
+  &__avatar {
+    $size: 93px;
+    width: $size;
+    height: $size;
+    background-color: #85d4e2;
+    border: 1px solid $avatar-border-color;
+    border-radius: 100%;
+    margin-right: 22px;
+    flex-shrink: 0;
+  }
+
+  &__info-container {}
+
+  &__name {
+    font-size: 22px;
+    font-weight: bold;
+    color: #212121;
+  }
+
+  &__status {
+    font-size: 18px;
+    margin: 10px 0 5px;
+    color: #757575;
+  }
+
+  &__skills-list {
+    @extend .skill-list;
+  }
+
+  &__skill {
+    @include skill(0);
+  }
+}

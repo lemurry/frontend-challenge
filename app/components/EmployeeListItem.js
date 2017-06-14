@@ -9,11 +9,10 @@ export class EmployeeListItem extends Component {
 
     render() {
         const employee = this.state.employee;
-        const skills = employee.skills.map(skill => <div className="list-item__skill"> {skill} </div>)
+        const skills = employee.skills.map(skill => <div className="list-item__skill" key={skill.id}> {skill.name} </div>)
 
         return (
-            <div>
-                <div className="list-item">
+                <div className={employee.opened ? "list-item opened" : "list-item"}>
                     <div className="list-item__avatar">
                     </div>
                     <div className="list-item__info-container">
@@ -27,9 +26,7 @@ export class EmployeeListItem extends Component {
                         {skills}
                       </div>
                     </div>
-
                 </div>
-            </div>
         );
     }
 }
