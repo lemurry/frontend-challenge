@@ -1,6 +1,3 @@
-$dark-text-color: #6d4552;
-$light-text-color: #90727c;
-
 .detailed-info-area {
   position: relative;
   flex: 1;
@@ -20,7 +17,7 @@ $light-text-color: #90727c;
   height: 100%;
   display: flex;
   padding-top: 70px;
-  padding-right: 50px;
+  padding-right: 110px;
 }
 
 .close-button {
@@ -48,51 +45,5 @@ $light-text-color: #90727c;
     content: "";
     display: block;
     padding-bottom: 100%;
-  }
-}
-
-.view-info {
-  flex: 1 1;
-
-  &__main-info {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-  }
-
-  &__name {
-    font-size: 36px;
-    font-weight: bold;
-    margin-right: 22px;
-    color: $dark-text-color;
-  }
-
-  &__bio {
-    font-size: 22px;
-    font-weight: bold;
-    color: $light-text-color;
-  }
-
-  &__status {
-    font-size: 22px;
-    font-weight: bold;
-    margin-top: 17px;
-    color: #6d4552;
-    color: $dark-text-color;
-  }
-
-  &__skills-list {
-    @extend .skill-list;
-    margin-top: 43px;
-  }
-
-  &__skill {
-    @include skill(8px);
-  }
-
-  &__description {
-    color: $dark-text-color;
-    font-size: 23px;
-    margin-top: 45px;
   }
 }

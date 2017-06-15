@@ -3,6 +3,11 @@ import ReactDOM from 'react-dom';
 import {EmployeeListItem} from './EmployeeListItem.js';
 import {EmployeeStore} from '../data/EmployeeStore.js';
 import EventTypes from '../data/EventTypes.js';
+import {
+  BrowserRouter as Router,
+  Route,
+  Link
+} from 'react-router-dom';
 
 export class EmployeeList extends Component {
   constructor(props) {
@@ -34,7 +39,9 @@ export class EmployeeList extends Component {
 
     return (
       <div className="list">
-        <div className="add-button"/>
+        <Link to="/add">
+          <div className="add-button"/>
+        </Link>
         <div>
           {rows}
         </div>

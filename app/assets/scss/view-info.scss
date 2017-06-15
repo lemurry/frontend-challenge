@@ -1,0 +1,45 @@
+.view-info {
+  flex: 1 1;
+
+  &__main-info {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  &__name {
+    font-size: 36px;
+    font-weight: bold;
+    margin-right: 22px;
+    color: $dark-text-color;
+  }
+
+  &__bio {
+    font-size: 22px;
+    font-weight: bold;
+    color: $medium-text-color;
+  }
+
+  &__status {
+    font-size: 22px;
+    font-weight: bold;
+    margin-top: 17px;
+    color: #6d4552;
+    color: $dark-text-color;
+  }
+
+  &__skills-list {
+    @extend .skill-list;
+    margin-top: 43px;
+  }
+
+  &__skill {
+    @include skill(8px);
+  }
+
+  &__description {
+    color: $dark-text-color;
+    font-size: 23px;
+    margin-top: 45px;
+  }
+}

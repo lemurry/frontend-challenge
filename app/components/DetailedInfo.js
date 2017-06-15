@@ -27,15 +27,15 @@ export class DetailedInfo extends Component {
     const employee = this.state.employee;
     if (employee) {
 
-let a = this.props;
-      debugger;
+let a = this.props.match.params.employeeId;
+      // debugger;
       return (
         <div className="detailed-info">
           <CloseButton/>
           <Router>
             <Switch>
               <Route exact path='/:employeeId/view' render={(props) => (<ViewEmployeeInfo employee={employee} {...props}/>)}/>
-              <Route exact path='/:employeeId/add' render={(props) => (<AddEmployeeInfo employee={employee} {...props}/>)}/>
+              <Route exact path='/add' render={(props) => (<AddEmployeeInfo employee={employee} {...props}/>)}/>
             </Switch>
             </Router>
         </div>

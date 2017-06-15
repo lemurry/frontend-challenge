@@ -1,10 +1,6 @@
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
-import {
-  BrowserRouter as Router,
-  Route,
-  Link
-} from 'react-router-dom';
+import {BrowserRouter as Router, Route, Link} from 'react-router-dom';
 import {EmployeeStore} from '../data/EmployeeStore.js';
 
 export class ViewEmployeeInfo extends Component {
@@ -20,35 +16,35 @@ export class ViewEmployeeInfo extends Component {
     </div>);
     return (
       <div className="detailed-info-container">
-    <div className="left-column">
-      <div className="avatar"/>
+        <div className="left-column">
+          <div className="avatar"/>
 
-    </div>
-
-    <div className="view-info">
-      <div className="view-info__main-info">
-        <div className="view-info__name">
-          {employee.firstName}
-          {employee.lastName}
         </div>
-        <div className="view-info__bio">
-          ({employee.gender}, {employee.dateOfBirth})
+
+        <div className="view-info">
+          <div className="view-info__main-info">
+            <div className="view-info__name">
+              {employee.firstName}
+              {employee.lastName}
+            </div>
+            <div className="view-info__bio">
+              ({employee.gender}, {employee.dateOfBirth})
+            </div>
+          </div>
+
+          <div className="view-info__status">
+            {employee.status}
+          </div>
+
+          <div className="view-info__skills-list">
+            {skills}
+          </div>
+
+          <div className="view-info__description">
+            {employee.description}
+          </div>
         </div>
       </div>
-
-      <div className="view-info__status">
-        {employee.status}
-      </div>
-
-      <div className="view-info__skills-list">
-        {skills}
-      </div>
-
-      <div className="view-info__description">
-        {employee.description}
-      </div>
-    </div>
-  </div>
-  )
+    )
   }
 }
