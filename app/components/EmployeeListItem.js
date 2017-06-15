@@ -3,6 +3,11 @@ import AppDispatcher from '../data/AppDispatcher.js';
 import {EmployeeStore} from '../data/EmployeeStore.js';
 import ActionTypes from '../data/ActionTypes.js';
 import EventTypes from '../data/EventTypes.js';
+import {
+  BrowserRouter as Router,
+  Route,
+  Link
+} from 'react-router-dom'
 
 export class EmployeeListItem extends Component {
   constructor(props) {
@@ -38,8 +43,10 @@ export class EmployeeListItem extends Component {
 
     const className = this.state.isOpened ? "list-item opened" : "list-item";
     // debugger;
+    const link = `/${employee.id}/view`;
 
     return (
+      <Link to={link}>
       <div onClick={this.openEmployeeInfo} className={className}>
         <div className="list-item__avatar"></div>
         <div className="list-item__info-container">
@@ -55,6 +62,7 @@ export class EmployeeListItem extends Component {
           </div>
         </div>
       </div>
+      </Link>
     );
   }
 }

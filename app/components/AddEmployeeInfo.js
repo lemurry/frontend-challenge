@@ -10,7 +10,7 @@ export class AddEmployeeInfo extends Component {
   }
 
   render() {
-
+return <div> add </div>
 
   }
 }

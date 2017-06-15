@@ -1,5 +1,11 @@
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
+import {
+  BrowserRouter as Router,
+  Route,
+  Link
+} from 'react-router-dom';
+import {EmployeeStore} from '../data/EmployeeStore.js';
 
 export class ViewEmployeeInfo extends Component {
   constructor(props) {
@@ -7,7 +13,8 @@ export class ViewEmployeeInfo extends Component {
   }
 
   render() {
-    const employee = this.props.employee;
+    let id = this.props.match.params.employeeId;
+    const employee = EmployeeStore.getEmployeeById(id);
     const skills = employee.skills.map(skill => <div className="view-info__skill" key={skill.id}>
       {skill.name}
     </div>);

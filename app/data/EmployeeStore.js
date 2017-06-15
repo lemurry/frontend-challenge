@@ -68,11 +68,15 @@ export var EmployeeStore = {
     }
   ],
 
-  openedEmployeeId: null,
+  openedEmployeeId: 1,
 
   getAllEmployees: function() {
     return this.employees;
   },
+
+    getEmployeeById: function(id) {
+      return this.employees.find(e => e.id == id);
+    },
 
   getOpenedEmployeeId: function() {
     return this.openedEmployeeId;

@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import {EmployeeList} from './EmployeeList.js'
 import {DetailedInfo} from './DetailedInfo.js'
 
@@ -9,12 +10,16 @@ export default class App extends Component {
         <div className="header">
           List
         </div>
-        <div className="content">
-          <EmployeeList/>
-          <div className="detailed-info-area">
-            <DetailedInfo/>
+
+        <Router>
+          <div className="content">
+            <EmployeeList/>
+            <div className="detailed-info-area">
+              <Route path='/:employeeId' component={DetailedInfo}/>
+            </div>
           </div>
-        </div>
+        </Router>
+
       </div>
     );
   }
