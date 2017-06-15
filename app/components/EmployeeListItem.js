@@ -13,11 +13,10 @@ export class EmployeeListItem extends Component {
   }
 
   openEmployeeInfo() {
-    let data = {
+    AppDispatcher.dispatch({
       eventName: "open-employee",
-      employeeId: this.state.employee.id // example data
-    }
-    AppDispatcher.dispatch(data);
+      employeeId: this.state.employee.id
+    });
   }
 
   render() {

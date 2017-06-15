@@ -94,6 +94,11 @@ AppDispatcher.register(function(payload) {
       EmployeeStore.trigger('change');
       break;
 
+    case 'close-employee':
+      EmployeeStore.openedEmployeeId = null;
+      EmployeeStore.trigger('change');
+      break;
+
   }
   return true;
 

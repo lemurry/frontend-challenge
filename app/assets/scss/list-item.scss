@@ -6,7 +6,9 @@
   padding: 34px 10px;
   border-bottom: 3px solid $border-color;
 
-  &.opened {}
+  &.opened {
+    color: red;
+  }
 
   &:first-child {
     border-top: 2px solid $border-color;

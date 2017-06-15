@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 import {EmployeeStore} from '../data/EmployeeStore.js';
+import {CloseButton} from './CloseButton.js';
 
 export class DetailedInfo extends Component {
   constructor(props) {
@@ -27,7 +28,7 @@ export class DetailedInfo extends Component {
 
       return (
         <div className="detailed-info">
-          <div className="close-button"/>
+          <CloseButton />
           <div className="left-column">
             <div className="avatar"/>
 
