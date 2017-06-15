@@ -2,82 +2,21 @@ import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 import {EmployeeListItem} from './EmployeeListItem.js';
 import {EmployeeStore} from '../data/EmployeeStore.js';
+import EventTypes from '../data/EventTypes.js';
 
 export class EmployeeList extends Component {
   constructor(props) {
     super(props);
 
+    let employees = EmployeeStore.getAllEmployees();
+    let openedEmployeeId = EmployeeStore.getOpenedEmployeeId();
+
     this.state = {
-      employees: [
-        {
-          id: 0,
-          firstName: "F.Name",
-          lastName: "L.Name",
-          status: "some text",
-          skills: [
-            {
-              id: 0,
-              name: "angular.js"
-            }, {
-              id: 1,
-              name: "react"
-            }
-          ],
-          gender: "Female",
-          dateOfBirth: "28.08.1990",
-          description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-          profileFilledPercentage: 100,
-          opened: false
-        }, {
-          id: 1,
-          firstName: "F.Name",
-          lastName: "L.Name",
-          status: "some text",
-          skills: [
-            {
-              id: 0,
-              name: "angular.js"
-            }, {
-              id: 1,
-              name: "react"
-            }, {
-              id: 2,
-              name: "node.js"
-            }, {
-              id: 3,
-              name: "scss"
-            }, {
-              id: 4,
-              name: "html"
-            }
-          ],
-          gender: "female",
-          dateOfBirth: "28.08.1990",
-          description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-          profileFilledPercentage: 20,
-          opened: true
-        }, {
-          id: 2,
-          firstName: "F.Name",
-          lastName: "L.Name",
-          status: "some text",
-          skills: [
-            {
-              id: 0,
-              name: "angular.js"
-            }
-          ],
-          gender: "female",
-          dateOfBirth: "28.08.1990",
-          description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-          profileFilledPercentage: 70,
-          opened: false
-        }
-      ],
-      openedEmployee: null
+      employees: employees,
+      openedEmployee: openedEmployeeId
     };
 
-    EmployeeStore.bind('change', this.listChanged);
+    EmployeeStore.bind(EventTypes.OPENED_EMPLOYEE_CHANGED, this.listChanged);
   }
 
 

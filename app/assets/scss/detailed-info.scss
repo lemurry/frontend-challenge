@@ -13,6 +13,11 @@ $light-text-color: #90727c;
   background-color: $page-color;
   position: relative;
   box-shadow: 0 0 7px 2px $shadow-color;
+}
+
+.detailed-info-container{
+  width: 100%;
+  height: 100%;
   display: flex;
   padding-top: 70px;
   padding-right: 50px;
@@ -46,7 +51,7 @@ $light-text-color: #90727c;
   }
 }
 
-.info-view {
+.view-info {
   flex: 1 1;
 
   &__main-info {

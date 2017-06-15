@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import AppDispatcher from '../data/AppDispatcher.js';
 import {EmployeeStore} from '../data/EmployeeStore.js';
+import ActionTypes from '../data/ActionTypes.js';
 
 export class CloseButton extends Component {
   constructor(props) {
@@ -11,7 +12,7 @@ export class CloseButton extends Component {
 
   closeEmployeeInfo() {
     AppDispatcher.dispatch({
-      eventName: "close-employee"
+      eventName: ActionTypes.CLOSE_EMPLOYEE
     });
   }
 

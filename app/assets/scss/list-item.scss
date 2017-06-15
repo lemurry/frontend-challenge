@@ -1,4 +1,5 @@
 .list-item {
+  position: relative;
   $border-color: #d9d2d5;
   display: flex;
   align-items: flex-start;
@@ -7,7 +8,7 @@
   border-bottom: 3px solid $border-color;
 
   &.opened {
-    color: red;
+
   }
 
   &:first-child {

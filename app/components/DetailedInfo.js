@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 import {EmployeeStore} from '../data/EmployeeStore.js';
 import {CloseButton} from './CloseButton.js';
+import {ViewEmployeeInfo} from './ViewEmployeeInfo.js';
+import EventTypes from '../data/EventTypes.js';
 
 export class DetailedInfo extends Component {
   constructor(props) {
@@ -12,7 +14,7 @@ export class DetailedInfo extends Component {
     };
 
     this.listChanged = this.listChanged.bind(this);
-    EmployeeStore.bind('change', this.listChanged);
+    EmployeeStore.bind(EventTypes.OPENED_EMPLOYEE_CHANGED, this.listChanged);
   }
 
   listChanged() {
@@ -22,41 +24,15 @@ export class DetailedInfo extends Component {
   render() {
     const employee = this.state.employee;
     if (employee) {
-      const skills = employee.skills.map(skill => <div className="info-view__skill" key={skill.id}>
+      const skills = employee.skills.map(skill => <div className="view-info__skill" key={skill.id}>
         {skill.name}
       </div>)
-
+      
       return (
         <div className="detailed-info">
           <CloseButton />
-          <div className="left-column">
-            <div className="avatar"/>
 
-          </div>
-
-          <div className="info-view">
-            <div className="info-view__main-info">
-              <div className="info-view__name">
-                {employee.firstName}
-                {employee.lastName}
-              </div>
-              <div className="info-view__bio">
-                ({employee.gender}, {employee.dateOfBirth})
-              </div>
-            </div>
-
-            <div className="info-view__status">
-              {employee.status}
-            </div>
-
-            <div className="info-view__skills-list">
-              {skills}
-            </div>
-
-            <div className="info-view__description">
-              {employee.description}
-            </div>
-          </div>
+          <ViewEmployeeInfo employee={employee} />
         </div>
       );
     } else {
