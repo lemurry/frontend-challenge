@@ -3,11 +3,7 @@ import AppDispatcher from '../data/AppDispatcher.js';
 import {EmployeeStore} from '../data/EmployeeStore.js';
 import ActionTypes from '../data/ActionTypes.js';
 import EventTypes from '../data/EventTypes.js';
-import {
-  BrowserRouter as Router,
-  Route,
-  Link
-} from 'react-router-dom'
+import {BrowserRouter as Router, Route, Link} from 'react-router-dom'
 
 export class EmployeeListItem extends Component {
   constructor(props) {
@@ -23,10 +19,7 @@ export class EmployeeListItem extends Component {
   }
 
   openEmployeeInfo() {
-    AppDispatcher.dispatch({
-      eventName: ActionTypes.OPEN_EMPLOYEE,
-      employeeId: this.state.employee.id
-    });
+    AppDispatcher.dispatch({eventName: ActionTypes.OPEN_EMPLOYEE, employeeId: this.state.employee.id});
   }
 
   onOpenedEmployeeChanged() {
@@ -41,18 +34,18 @@ export class EmployeeListItem extends Component {
       {skill.name}
     </div>)
 
-    const className = this.state.isOpened ? "list-item opened" : "list-item";
+    const className = this.state.isOpened
+      ? "list-item opened"
+      : "list-item";
     // debugger;
     const link = `/${employee.id}/view`;
 
     return (
-      <Link to={link}>
-      <div onClick={this.openEmployeeInfo} className={className}>
+      <Link to={link} onClick={this.openEmployeeInfo} className={className}>
         <div className="list-item__avatar"></div>
         <div className="list-item__info-container">
           <div className="list-item__name">
-            {employee.firstName}
-            {employee.lastName}
+            {employee.firstName} {employee.lastName}
           </div>
           <div className="list-item__status">
             {employee.status}
@@ -61,7 +54,6 @@ export class EmployeeListItem extends Component {
             {skills}
           </div>
         </div>
-      </div>
       </Link>
     );
   }

@@ -16,6 +16,16 @@
 body {
   margin: 0;
 }
+button:focus,
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+}
+
+a:hover, a:visited, a:link, a:active {
+    text-decoration: none;
+}
 
 .page {
   display: flex;

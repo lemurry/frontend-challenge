@@ -25,8 +25,7 @@ export class DetailedInfo extends Component {
 
   render() {
     const employee = this.state.employee;
-    if (employee) {
-
+    
       return (
         <div className="detailed-info">
           <CloseButton/>
@@ -35,14 +34,9 @@ export class DetailedInfo extends Component {
               <Route exact path='/:employeeId/view' render={(props) => (<ViewEmployeeInfo employee={employee} {...props}/>)}/>
               <Route exact path='/add' render={(props) => (<AddEmployeeInfo employee={employee} {...props}/>)}/>
             </Switch>
-            </Router>
+          </Router>
         </div>
-      );
-    } else {
-      return <div>
-        ok
-      </div>
-    }
+      )
 
   }
 }
