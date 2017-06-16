@@ -1,12 +1,23 @@
+button:focus,
 input:focus,
 select:focus,
-textarea:focus,
-button:focus {
-    outline: none;
+textarea:focus {
+  outline: none;
+}
+
+.filled-profile {
+  color: $medium-text-color;
+  text-align: center;
+  font-size: 21px;
+  margin-top: 25px;
 }
 
 .employee-form {
   flex: 1 1;
+
+  & > * {
+    margin-bottom: 22px;
+  }
 
   &__row {
     display: flex;
@@ -18,35 +29,78 @@ button:focus {
       justify-content: space-between;
     }
   }
-
-  &__input {
+  @mixin input() {
     width: 100%;
     font-size: 23px;
-    padding: 14px 19px;
-    margin-bottom: 22px;
+    color: $dark-text-color;
+    border: 1px solid $border-color;
+    box-shadow: inset 0 1px 2px 1px lighten($border-color, 10%);
+    border-radius: 7px;
+    background-color: white;
+    overflow: hidden;
+  }
 
+  &__input {
+    @include input;
 
     &--short {
       width: 49%;
     }
   }
 
-  &__skill-list {
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-  }
-
-  &__skill {
-    background-color: $orange-color;
-  }
-
   &__datepicker {
     background-color: $orange-color;
   }
 
+  &__skill-list {
+    @include input;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  &__skill {
+    background-color: $orange-color;
+    padding: 16px 50px;
+    margin: 8px 7px;
+    border-radius: 4px;
+    color: white;
+  }
+  @mixin placeholder-styles() {
+    font-weight: normal;
+    color: $light-text-color;
+  }
+
+  &__embeded-input {
+    font-size: 23px;
+    border: none;
+    width: 100%;
+    height: 100%;
+    padding: 14px 19px;
+    background-color: transparent;
+
+    &::-webkit-input-placeholder {
+      @include placeholder-styles;
+    }
+
+    &::-moz-placeholder {
+      @include placeholder-styles;
+    }
+
+    &:-moz-placeholder {
+      @include placeholder-styles;
+    }
+
+    &:-ms-input-placeholder {
+      @include placeholder-styles;
+    }
+  }
+
   &__textarea {
-    resize: vertical;
+    @extend .employee-form__embeded-input;
+    resize: none;
+    max-height: 300px;
+    min-height: 200px;
     max-height: 300px;
   }
 }

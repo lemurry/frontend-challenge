@@ -47,14 +47,23 @@ export class AddEmployeeInfo extends Component {
 
         <div className="employee-form">
           <div className="employee-form__row employee-form__row--full">
-            <input className="employee-form__input employee-form__input--short" type="text" placeholder="First name"/>
-            <input className="employee-form__input employee-form__input--short" type="text" placeholder="Last name"/>
-          </div>
 
-          <input className="employee-form__input" type="text" placeholder="Some text"/>
+            <div className="employee-form__input employee-form__input--short">
+              <input className="employee-form__embeded-input" type="text" placeholder="First name"/>
+            </div>
+
+            <div className="employee-form__input employee-form__input--short">
+              <input className="employee-form__embeded-input" type="text" placeholder="Last name"/>
+            </div>
+
+          </div>
+          <div className="employee-form__input">
+            <input className="employee-form__embeded-input" type="text" placeholder="Some text"/>
+          </div>
 
           <div className="employee-form__skill-list">
             {skills}
+            <input className="employee-form__embeded-input" type="text" placeholder="start typing skill..."/>
           </div>
 
           <div className="employee-form__row">
@@ -68,8 +77,9 @@ export class AddEmployeeInfo extends Component {
             </div>
           </div>
 
-          <textarea className="employee-form__textarea" rows="10" cols="45" name="text"></textarea>
-
+          <div className="employee-form__input">
+            <textarea className="employee-form__textarea" rows="7" cols="45" name="text" placeholder="Add some description"/>
+          </div>
         </div>
       </div>
     )
