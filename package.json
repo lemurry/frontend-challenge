@@ -2,7 +2,7 @@
   "name": "test-project",
   "version": "2.0.0",
   "description": "test-project",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "start-dev": "webpack-dev-server",
     "build": "webpack --config webpack.production.config.js --progress --profile --colors",

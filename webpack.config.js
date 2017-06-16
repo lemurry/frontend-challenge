@@ -28,6 +28,7 @@ const config = {
     hot: true,
     contentBase: resolve(__dirname, 'dist'),
     publicPath: '/',
+    historyApiFallback: true
   },
 
   module: {

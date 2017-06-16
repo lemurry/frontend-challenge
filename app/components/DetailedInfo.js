@@ -27,8 +27,6 @@ export class DetailedInfo extends Component {
     const employee = this.state.employee;
     if (employee) {
 
-let a = this.props.match.params.employeeId;
-      // debugger;
       return (
         <div className="detailed-info">
           <CloseButton/>
