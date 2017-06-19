@@ -5,7 +5,7 @@ import {EmployeeStore} from '../data/EmployeeStore.js';
 import {CloseButton} from './CloseButton.js';
 import {ViewEmployeeInfo} from './ViewEmployeeInfo.js';
 import EventTypes from '../data/EventTypes.js';
-import {AddEmployeeInfo} from './AddEmployeeInfo.js'
+import AddEmployeeInfo from './AddEmployeeInfo.js'
 
 export class DetailedInfo extends Component {
   constructor(props) {
@@ -25,7 +25,7 @@ export class DetailedInfo extends Component {
 
   render() {
     const employee = this.state.employee;
-    
+
       return (
         <div className="detailed-info">
           <CloseButton/>

@@ -68,7 +68,7 @@ export var EmployeeStore = {
     }
   ],
 
-  openedEmployeeId: 1,
+  openedEmployeeId: 0,
 
   getAllEmployees: function() {
     return this.employees;

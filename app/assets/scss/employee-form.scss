@@ -22,6 +22,10 @@
       justify-content: space-between;
     }
   }
+  @mixin placeholder-styles() {
+    font-weight: normal;
+    color: $light-text-color;
+  }
   @mixin input() {
     width: 100%;
     font-size: 23px;
@@ -31,46 +35,8 @@
     border-radius: 7px;
     background-color: white;
     overflow: hidden;
-  }
-
-  &__input {
-    @include input;
-
-    &--short {
-      width: 49%;
-    }
-  }
-
-  &__datepicker {
-    background-color: $orange-color;
-  }
-
-  &__skill-list {
-    @include input;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-  }
-
-  &__skill {
-    background-color: $orange-color;
-    padding: 16px 50px;
-    margin: 8px 7px;
-    border-radius: 4px;
-    color: white;
-  }
-  @mixin placeholder-styles() {
-    font-weight: normal;
-    color: $light-text-color;
-  }
-
-  &__embeded-input {
     font-size: 23px;
-    border: none;
-    width: 100%;
-    height: 100%;
     padding: 14px 19px;
-    background-color: transparent;
 
     &::-webkit-input-placeholder {
       @include placeholder-styles;
@@ -89,11 +55,59 @@
     }
   }
 
+  &__input {
+    @include input;
+
+    &--short {
+      width: 49%;
+    }
+  }
+
+  &__datepicker {
+    background-color: $orange-color;
+  }
+
+  &__skill-list {
+    @include input;
+    padding: 0 3px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  &__skill {
+    background-color: $orange-color !important;
+    margin: 8px 7px !important;
+    border-radius: 4px !important;
+    color: white !important;
+    font-size: 23px !important;
+    display: flex;
+    align-items: center;
+  }
+
   &__textarea {
-    @extend .employee-form__embeded-input;
-    resize: none;
+    @include input();
+    resize: vertical;
     max-height: 300px;
     min-height: 200px;
-    max-height: 300px;
+  }
+
+  &__select {
+  background-color: $orange-color !important;
+    border-radius: 6px;
+    box-shadow: 0px 2px 1px 1px #a78453;
+    color: white !important;
+    font-size: 23px !important;
+
+    margin-right: 30px;
+  }
+
+  &__datepicker {
+    background-color: $orange-color !important;
+    border-radius: 6px;
+    box-shadow: 0px 2px 1px 1px #a78453;
+    color: white !important;
+    font-size: 23px !important;
   }
 }
