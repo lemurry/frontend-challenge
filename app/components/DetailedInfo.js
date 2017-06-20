@@ -4,7 +4,7 @@ import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 
 import {CloseButton} from './CloseButton.js';
 import {ViewEmployeeInfo} from './ViewEmployeeInfo.js';
-import AddEmployeeInfo from './AddEmployeeInfo.js'
+import EditEmployeeInfo from './EditEmployeeInfo.js'
 
 export function DetailedInfo(props) {
     const employee = props.employee;
@@ -15,9 +15,11 @@ export function DetailedInfo(props) {
           <Router>
             <Switch>
               <Route exact path='/:employeeId/view' render={(props) => (<ViewEmployeeInfo employee={employee} {...props}/>)}/>
-              <Route exact path='/add' render={(props) => (<AddEmployeeInfo employee={employee} {...props}/>)}/>
+              <Route exact path='/:employeeId/edit' render={(props) => (<EditEmployeeInfo employee={employee} {...props}/>)}/>
             </Switch>
           </Router>
         </div>
       )
   }
+
+  // <Route exact path='/add' render={(props) => (< employee={employee} {...props}/>)}/>

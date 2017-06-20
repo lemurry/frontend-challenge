@@ -3,7 +3,7 @@ import {EmployeeStore} from '../data/EmployeeStore.js';
 
 export function ViewEmployeeInfo(props) {
   let id = props.match.params.employeeId;
-  const employee = EmployeeStore.getEmployeeById(id);
+  const employee = props.employee
   const skills = employee.skills.map(skill => <div className="view-info__skill" key={skill.id}>
     {skill.name}
   </div>);

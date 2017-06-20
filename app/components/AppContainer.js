@@ -23,11 +23,8 @@ export default class AppContainer extends Component {
 
   render() {
     const employeeList = this.state;
-    const openedEmployee = employeeList[1];
-
-    debugger;
     return (
-      <App openedEmployee={openedEmployee} employeeList={employeeList}/>
+      <App employeeList={employeeList}/>
     );
   }
 }

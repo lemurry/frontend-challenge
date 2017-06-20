@@ -11,7 +11,7 @@ import MenuItem from 'material-ui/MenuItem';
 import {EmployeeStore} from '../data/EmployeeStore.js';
 import EventTypes from '../data/EventTypes.js';
 
-const AddEmployeeInfo = (props) => {
+const EditEmployeeInfo = (props) => {
   const styles = {
     skillStyle: {
       fontSize: '23px',
@@ -102,4 +102,4 @@ const AddEmployeeInfo = (props) => {
   )
 }
 
-export default muiThemeable()(AddEmployeeInfo);
+export default muiThemeable()(EditEmployeeInfo);

@@ -24,7 +24,8 @@ class EmployeeStore extends ReduceStore{
           gender: 1,
           dateOfBirth: new Date(),
           description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-          profileFilledPercentage: 100
+          profileFilledPercentage: 100,
+          isOpened: false
         })
       ], [
         1,
@@ -37,7 +38,8 @@ class EmployeeStore extends ReduceStore{
           gender: 1,
           dateOfBirth: new Date(),
           description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-          profileFilledPercentage: 20
+          profileFilledPercentage: 20,
+          isOpened: false
         })
       ], [
         2,
@@ -50,7 +52,8 @@ class EmployeeStore extends ReduceStore{
           gender: 1,
           dateOfBirth: new Date(),
           description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-          profileFilledPercentage: 70
+          profileFilledPercentage: 70,
+          isOpened: false
         })
       ]
     ]).toJS()
