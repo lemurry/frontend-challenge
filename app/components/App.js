@@ -1,9 +1,11 @@
-import React, {Component} from 'react';
+import React from 'react';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+
 import injectTapEventPlugin from 'react-tap-event-plugin';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
+
 import {EmployeeList} from './EmployeeList.js'
 import {DetailedInfo} from './DetailedInfo.js'
 
@@ -18,8 +20,10 @@ const muiTheme = {
   }
 };
 
-export default class App extends Component {
-  render() {
+export default function App(props) {
+    const openedEmployee = props.openedEmployee;
+    const employeeList = props.employeeList;
+
     return (
       <MuiThemeProvider muiTheme={getMuiTheme(muiTheme)}>
         <div className="page">
@@ -29,9 +33,9 @@ export default class App extends Component {
 
           <Router>
             <div className="content">
-              <EmployeeList/>
+              <EmployeeList list={employeeList}/>
               <div className="detailed-info-area">
-                <Route path='/:employeeId' component={DetailedInfo}/>
+                <Route path='/:employeeId' render={(props) => (<DetailedInfo employee={openedEmployee} {...props}/>)} />
               </div>
             </div>
           </Router>
@@ -40,4 +44,3 @@ export default class App extends Component {
       </MuiThemeProvider>
     );
   }
-}

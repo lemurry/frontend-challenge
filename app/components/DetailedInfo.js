@@ -1,30 +1,13 @@
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
-import {EmployeeStore} from '../data/EmployeeStore.js';
+
 import {CloseButton} from './CloseButton.js';
 import {ViewEmployeeInfo} from './ViewEmployeeInfo.js';
-import EventTypes from '../data/EventTypes.js';
 import AddEmployeeInfo from './AddEmployeeInfo.js'
 
-export class DetailedInfo extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      employee: EmployeeStore.getOpenedEmployee()
-    };
-
-    this.listChanged = this.listChanged.bind(this);
-    EmployeeStore.bind(EventTypes.OPENED_EMPLOYEE_CHANGED, this.listChanged);
-  }
-
-  listChanged() {
-    this.setState({employee: EmployeeStore.getOpenedEmployee()});
-  }
-
-  render() {
-    const employee = this.state.employee;
+export function DetailedInfo(props) {
+    const employee = props.employee;
 
       return (
         <div className="detailed-info">
@@ -37,6 +20,4 @@ export class DetailedInfo extends Component {
           </Router>
         </div>
       )
-
   }
-}

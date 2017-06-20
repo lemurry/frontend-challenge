@@ -1,64 +1,66 @@
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
+
+import muiThemeable from 'material-ui/styles/muiThemeable';
 import Chip from 'material-ui/Chip';
 import AutoComplete from 'material-ui/AutoComplete';
 import SelectField from 'material-ui/SelectField';
 import DatePicker from 'material-ui/DatePicker';
 import MenuItem from 'material-ui/MenuItem';
+
 import {EmployeeStore} from '../data/EmployeeStore.js';
 import EventTypes from '../data/EventTypes.js';
-import muiThemeable from 'material-ui/styles/muiThemeable';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 const AddEmployeeInfo = (props) => {
-  const employee = props.employee;
-  const skillStyle = {
-    fontSize: '23px',
-    padding: '16px 40px',
-    color: 'white',
-    fontWeight: 'normal'
-  };
-
-  const selectStyle = {
-    fontSize: '23px',
-    color: 'white'
-  };
-
-  const selectListStyle = {
-    fontSize: '23px',
-    backgroundColor: 'black',
-    color: 'white',
-    borderRadius: '6px'
-  };
-
-  const datePickerStyle = {
-    fontSize: '23px',
-    color: 'white'
-  };
-
-  const menuItemStyle = {
-    color: 'white',
-    fontSize: '23px',
-    padding: '10px 0'
-  }
-
-  const hintStyle = {
-    color: props.muiTheme.palette.lightTextColor,
-    fontSize: '23px'
-  }
-
-  const autoCompleteStyle = {
+  const styles = {
+    skillStyle: {
+      fontSize: '23px',
+      padding: '16px 40px',
+      color: 'white',
+      fontWeight: 'normal'
+    },
+    selectStyle: {
+      fontSize: '23px',
+      color: 'white'
+    },
+    selectListStyle: {
+      fontSize: '23px',
+      backgroundColor: 'black',
+      color: 'white'
+    },
+    datePickerStyle: {
+      fontSize: '23px',
+      color: 'white'
+    },
+    menuItemStyle: {
+      color: 'white',
+      fontSize: '23px',
+      padding: '10px 0'
+    },
+    hintStyle: {
+      color: props.muiTheme.palette.lightTextColor,
+      fontSize: '23px'
+    },
+    autoCompleteStyle: {
       color: props.muiTheme.palette.darkTextColor,
       fontSize: '23px'
+    },
+    textFieldStyle: {
+      color: 'red',
+      backgroundColor: 'red',
+      fontSize: '23px'
+    }
   }
+
+  const employee = props.employee;
 
   var skillList = ['angular.js', 'nodejs', 'react', 'html5', 'css3'];
 
-  function deleteItem() {}
-
-  const skills = employee.skills.map(skill => <Chip onRequestDelete={deleteItem.bind(this)} className="employee-form__skill" labelStyle={skillStyle} key={skill.id}>
+  const skills = employee.skills.map(skill => <Chip onRequestDelete={deleteItem.bind(this)} className="employee-form__skill" labelStyle={styles.skillStyle} key={skill.id}>
     {skill.name}
   </Chip>);
+
+  function deleteItem() {}
 
   return (
     <div className="detailed-info-container">
@@ -81,17 +83,17 @@ const AddEmployeeInfo = (props) => {
 
         <div className="employee-form__skill-list">
           {skills}
-          <AutoComplete hintStyle={hintStyle} textFieldStyle={autoCompleteStyle} hintText="start typing..." dataSource={skillList} underlineShow={false} />
+          <AutoComplete inputStyle={styles.textFieldStyle} hintStyle={styles.hintStyle} hintText="start typing..." dataSource={skillList} underlineShow={false}/>
         </div>
 
         <div className="employee-form__row">
 
-          <SelectField floatingLabelFixed={false} menuItemStyle={menuItemStyle} underlineShow={false} floatingLabelText="Select Gender" className="employee-form__select" floatingLabelStyle={selectStyle} listStyle={selectListStyle}>
+          <SelectField floatingLabelFixed={false} menuItemStyle={styles.menuItemStyle} underlineShow={false} floatingLabelText="Select Gender" className="employee-form__select" floatingLabelStyle={styles.selectStyle} listStyle={styles.selectListStyle}>
             <MenuItem value={1} primaryText="Male"/>
             <MenuItem value={2} primaryText="Female"/>
           </SelectField>
 
-          <DatePicker className="employee-form__datepicker" textFieldStyle={datePickerStyle} hintText="Birthday" underlineShow={false} container="inline"/>
+          <DatePicker className="employee-form__datepicker" textFieldStyle={styles.datePickerStyle} hintText="Birthday" underlineShow={false} container="inline"/>
         </div>
 
         <textarea className="employee-form__textarea" rows="7" cols="45" name="text" placeholder="Add some description"/>
@@ -101,11 +103,3 @@ const AddEmployeeInfo = (props) => {
 }
 
 export default muiThemeable()(AddEmployeeInfo);
-//
-// <div className="employee-form__select">
-// <select>
-//   <option>Select Gender</option>
-//   <option>Male</option>
-//   <option>Female</option>
-// </select>
-// </div>
