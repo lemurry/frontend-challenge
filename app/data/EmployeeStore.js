@@ -1,108 +1,73 @@
 import AppDispatcher from './AppDispatcher.js';
-import MicroEvent from 'microevent';
+import {ReduceStore} from 'flux/utils';
+import Immutable from 'immutable';
+
 import ActionTypes from './ActionTypes.js';
 import EventTypes from './EventTypes.js';
+import Employee from './Employee.js';
 
-export var EmployeeStore = {
-  employees: [
-    {
-      id: 0,
-      firstName: "F.Name",
-      lastName: "L.Name",
-      status: "some text",
-      skills: [
-        {
+class EmployeeStore extends ReduceStore{
+  constructor() {
+    super(AppDispatcher);
+  }
+
+  getInitialState() {
+    return Immutable.OrderedMap([
+      [
+        0,
+        new Employee({
           id: 0,
-          name: "angular.js"
-        }, {
+          firstName: "F.Name",
+          lastName: "L.Name",
+          status: "some text",
+          skills: [],
+          gender: 1,
+          dateOfBirth: new Date(),
+          description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+          profileFilledPercentage: 100
+        })
+      ], [
+        1,
+        new Employee({
           id: 1,
-          name: "react"
-        }
-      ],
-      gender: "Female",
-      dateOfBirth: "28.08.1990",
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-      profileFilledPercentage: 100
-    }, {
-      id: 1,
-      firstName: "F.Name",
-      lastName: "L.Name",
-      status: "some text",
-      skills: [
-        {
-          id: 0,
-          name: "angular.js"
-        }, {
-          id: 1,
-          name: "react"
-        }, {
+          firstName: "F.Name",
+          lastName: "L.Name",
+          status: "some text",
+          skills: [],
+          gender: 1,
+          dateOfBirth: new Date(),
+          description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+          profileFilledPercentage: 20
+        })
+      ], [
+        2,
+        new Employee({
           id: 2,
-          name: "node.js"
-        }, {
-          id: 3,
-          name: "scss"
-        }, {
-          id: 4,
-          name: "html"
-        }
-      ],
-      gender: "Female",
-      dateOfBirth: "28.08.1990",
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-      profileFilledPercentage: 20
-    }, {
-      id: 2,
-      firstName: "F.Name",
-      lastName: "L.Name",
-      status: "some text",
-      skills: [
-        {
-          id: 0,
-          name: "angular.js"
-        }
-      ],
-      gender: "Female",
-      dateOfBirth: "28.08.1990",
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-      profileFilledPercentage: 70
+          firstName: "F.Name",
+          lastName: "L.Name",
+          status: "some text",
+          skills: [],
+          gender: 1,
+          dateOfBirth: new Date(),
+          description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+          profileFilledPercentage: 70
+        })
+      ]
+    ]).toJS()
+  }
+
+  reduce(state, action) {
+
+    switch (action.type) {
+      case ActionTypes.OPEN_EMPLOYEE:
+        return state.set(openedEmployeeId = action.id);
+
+      case ActionTypes.CLOSE_EMPLOYEE:
+        return state.set(openedEmployeeId = null);
+
+      default:
+        return state;
     }
-  ],
-
-  openedEmployeeId: 0,
-
-  getAllEmployees: function() {
-    return this.employees;
-  },
-
-    getEmployeeById: function(id) {
-      return this.employees.find(e => e.id == id);
-    },
-
-  getOpenedEmployeeId: function() {
-    return this.openedEmployeeId;
-  },
-
-  getOpenedEmployee: function() {
-    return this.employees.find(e => e.id == this.openedEmployeeId);
   }
 }
-
-MicroEvent.mixin(EmployeeStore);
-
-AppDispatcher.register(function(payload) {
-
-  switch (payload.eventName) {
-    case ActionTypes.OPEN_EMPLOYEE:
-      EmployeeStore.openedEmployeeId = payload.employeeId;
-      EmployeeStore.trigger(EventTypes.OPENED_EMPLOYEE_CHANGED);
-      break;
-
-    case ActionTypes.CLOSE_EMPLOYEE:
-      EmployeeStore.openedEmployeeId = null;
-      EmployeeStore.trigger(EventTypes.OPENED_EMPLOYEE_CHANGED);
-      break;
-
-  }
-  return true;
-
-});
+export default new EmployeeStore();

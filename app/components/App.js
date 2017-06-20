@@ -21,6 +21,7 @@ const muiTheme = {
 };
 
 export default function App(props) {
+
     const openedEmployee = props.openedEmployee;
     const employeeList = props.employeeList;
 

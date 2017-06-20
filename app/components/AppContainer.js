@@ -1,25 +1,35 @@
 import React, {Component} from 'react';
 import {Container} from 'flux/utils';
 
-import {EmployeeStore} from '../data/EmployeeStore.js';
+import EmployeeStore from '../data/EmployeeStore.js';
 
 import App from './App.js';
 
 export default class AppContainer extends Component {
 
-  constructor(props) {
-    super(props);
+  componentWillMount() {
+    this.state = Object.values(EmployeeStore.getInitialState());
+  }
 
-    this.state = {
-      employeeList: EmployeeStore.getAllEmployees(),
-      openedEmployee: EmployeeStore.getOpenedEmployee()
+  static getStores() {
+    return [EmployeeStore];
+  }
+
+  static calculateState(prevState) {
+    return {
+      employeeList: EmployeeStore.getState()
     };
   }
 
   render() {
-    const openedEmployee = this.state.openedEmployee;
-    const employeeList = this.state.employeeList;
+    const employeeList = this.state;
+    const openedEmployee = employeeList[1];
 
-    return (<App openedEmployee={openedEmployee} employeeList={employeeList}/>);
+    debugger;
+    return (
+      <App openedEmployee={openedEmployee} employeeList={employeeList}/>
+    );
   }
 }
+
+const container = Container.create(AppContainer);
