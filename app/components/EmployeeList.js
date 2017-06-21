@@ -9,20 +9,22 @@ import {
 } from 'react-router-dom';
 
 export function EmployeeList (props) {
-    const rows = props.list.sort((a, b) => {
+    const rows = props.employeeList.sort((a, b) => {
       return a.id - b.id;
     }).map((e) => {
-      return <EmployeeListItem employee={e} key={e.id}/>;
+      return <EmployeeListItem employee={e} key={e.id} {...props}/>;
     });
 
     return (
       <div className="list">
-        <Link to="/add">
-          <div className="add-button"/>
-        </Link>
+          <div className="add-button" onClick={props.onAdd} />
         <div>
           {rows}
         </div>
       </div>
-    );
+    )
   }
+
+    // <Link to="/add">
+    //     <div className="add-button"/>
+    //   </Link>

@@ -1,32 +1,22 @@
-import React, {Component} from 'react';
-import {Container} from 'flux/utils';
+import React from 'react';
+import { Container } from 'flux/utils';
+import Immutable from 'immutable';
 
 import EmployeeStore from '../data/EmployeeStore.js';
+import ActionCreator from '../data/ActionCreator.js';
 
 import App from './App.js';
 
-export default class AppContainer extends Component {
-
-  componentWillMount() {
-    this.state = Object.values(EmployeeStore.getInitialState());
-  }
-
-  static getStores() {
-    return [EmployeeStore];
-  }
-
-  static calculateState(prevState) {
-    return {
-      employeeList: EmployeeStore.getState()
-    };
-  }
-
-  render() {
-    const employeeList = this.state;
-    return (
-      <App employeeList={employeeList}/>
-    );
-  }
+function getStores() {
+  return [EmployeeStore];
 }
 
-const container = Container.create(AppContainer);
+function getState() {
+  return {
+    employeeList: Object.values(EmployeeStore.getState().toJS()),
+
+    onAdd: ActionCreator.addEmployee,
+    onDelete: ActionCreator.deleteEmployee,
+  };
+}
+export default Container.createFunctional(App, getStores, getState);

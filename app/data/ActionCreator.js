@@ -2,14 +2,14 @@ import ActionTypes from './ActionTypes';
 import AppDispatcher from './AppDispatcher';
 
 const Actions = {
-  addEmployee(text) {
+  addEmployee(employee) {
     AppDispatcher.dispatch({
       type: ActionTypes.ADD_EMPLOYEE,
-      text,
+      employee,
     });
   },
 
-  deleteTodo(id) {
+  deleteEmployee(id) {
     AppDispatcher.dispatch({
       type: ActionTypes.DELETE_EMPLOYEE,
       id,

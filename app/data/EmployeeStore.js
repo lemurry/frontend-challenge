@@ -2,6 +2,8 @@ import AppDispatcher from './AppDispatcher.js';
 import {ReduceStore} from 'flux/utils';
 import Immutable from 'immutable';
 
+import Counter from './Counter.js';
+
 import ActionTypes from './ActionTypes.js';
 import EventTypes from './EventTypes.js';
 import Employee from './Employee.js';
@@ -22,7 +24,7 @@ class EmployeeStore extends ReduceStore{
           status: "some text",
           skills: [],
           gender: 1,
-          dateOfBirth: new Date(),
+          dateOfBirth: '',
           description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
           profileFilledPercentage: 100,
           isOpened: false
@@ -36,7 +38,7 @@ class EmployeeStore extends ReduceStore{
           status: "some text",
           skills: [],
           gender: 1,
-          dateOfBirth: new Date(),
+          dateOfBirth: '',
           description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
           profileFilledPercentage: 20,
           isOpened: false
@@ -50,18 +52,36 @@ class EmployeeStore extends ReduceStore{
           status: "some text",
           skills: [],
           gender: 1,
-          dateOfBirth: new Date(),
+          dateOfBirth: '',
           description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
           profileFilledPercentage: 70,
           isOpened: false
         })
       ]
-    ]).toJS()
+    ])
   }
 
   reduce(state, action) {
 
     switch (action.type) {
+      case ActionTypes.ADD_EMPLOYEE:
+      let id = Counter.increment();
+      return state.set(id, new Employee({
+        id: id,
+        firstName: "New",
+        lastName: "Item",
+        status: "some text",
+        skills: [],
+        gender: 1,
+        dateOfBirth: '',
+        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        profileFilledPercentage: 20,
+        isOpened: false
+      }));
+
+      case ActionTypes.DELETE_EMPLOYEE:
+        return state.delete(action.id);
+
       case ActionTypes.OPEN_EMPLOYEE:
         return state.set(openedEmployeeId = action.id);
 

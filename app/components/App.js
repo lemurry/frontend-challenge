@@ -21,9 +21,7 @@ const muiTheme = {
 };
 
 export default function App(props) {
-
-    const employeeList = props.employeeList;
-    const openedEmployee = employeeList.find(employee => employee.isOpened);
+    const openedEmployee = props.employeeList.find(employee => employee.isOpened);
 
     return (
       <MuiThemeProvider muiTheme={getMuiTheme(muiTheme)}>
@@ -34,9 +32,9 @@ export default function App(props) {
 
           <Router>
             <div className="content">
-              <EmployeeList list={employeeList}/>
+              <EmployeeList {...props}/>
               <div className="detailed-info-area">
-                <Route path='/:employeeId' render={(props) => (<DetailedInfo employee={openedEmployee} {...props}/>)} />
+                <Route path='/:employeeId' render={(props) => (<DetailedInfo employee={openedEmployee} />)} />
               </div>
             </div>
           </Router>
