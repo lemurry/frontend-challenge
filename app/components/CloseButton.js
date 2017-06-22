@@ -3,9 +3,10 @@ import {Link} from 'react-router-dom';
 
 export function CloseButton(props) {
 
-  return (
-      <Link to="/">
-        <div className="close-button" />
-      </Link>
-    );
+  const closeEmployee = () => {
+    props.history.push('/');
+    props.onClose();
   }
+
+  return (<div className="close-button" onClick={closeEmployee}/>);
+}

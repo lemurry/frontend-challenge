@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container } from 'flux/utils';
+import {Container} from 'flux/utils';
 import Immutable from 'immutable';
 
 import EmployeeStore from '../data/EmployeeStore.js';
@@ -16,7 +16,7 @@ function getState() {
   let employeeList = state.get('employeeList').toJS();
   let openedEmployeeId = state.get('openedEmployeeId');
   // let openedEmployee = employeeList.find(e =>  e.get('id') == openedEmployeeId).toJS();
-  let openedEmployee = employeeList.find(e =>  e.id == openedEmployeeId);
+  let openedEmployee = employeeList.find(e => e.id == openedEmployeeId);
   // debugger;
   return {
     employeeList: employeeList,
@@ -25,6 +25,7 @@ function getState() {
     onAdd: ActionCreator.addEmployee,
     onDelete: ActionCreator.deleteEmployee,
     onOpen: ActionCreator.openEmployee,
+    onClose: ActionCreator.closeEmployee
   };
 }
 export default Container.createFunctional(App, getStores, getState);

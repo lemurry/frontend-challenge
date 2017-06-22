@@ -2,10 +2,14 @@ import React from 'react';
 import {EmployeeStore} from '../data/EmployeeStore.js';
 
 export function ViewEmployeeInfo(props) {
-    const employee = props.openedEmployee;
+  const employee = props.openedEmployee;
   // const skills = employee.skills.map(skill => <div className="view-info__skill" key={skill.id}>
   //   {skill.name}
   // </div>);
+
+  const onEdit = () => {
+    props.history.push(`${employee.id}/edit`);
+  }
 
   return (
     <div className="detailed-info-container">
@@ -17,7 +21,8 @@ export function ViewEmployeeInfo(props) {
       <div className="view-info">
         <div className="view-info__main-info">
           <div className="view-info__name">
-            {employee.firstName} {employee.lastName}
+            {employee.firstName}
+            {employee.lastName}
           </div>
           <div className="view-info__bio">
             ({employee.gender}, {employee.dateOfBirth})
@@ -36,6 +41,7 @@ export function ViewEmployeeInfo(props) {
           {employee.description}
         </div>
       </div>
+      <div onClick={onEdit}> Edit </div>
     </div>
   )
 }

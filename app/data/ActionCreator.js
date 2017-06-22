@@ -16,12 +16,18 @@ const Actions = {
     });
   },
 
-    openEmployee(id) {
-      AppDispatcher.dispatch({
-        type: ActionTypes.OPEN_EMPLOYEE,
-        id,
-      });
-    },
+  openEmployee(id) {
+    AppDispatcher.dispatch({
+      type: ActionTypes.OPEN_EMPLOYEE,
+      id,
+    });
+  },
+
+  closeEmployee() {
+    AppDispatcher.dispatch({
+      type: ActionTypes.CLOSE_EMPLOYEE
+    });
+  },
 };
 
 export default Actions;

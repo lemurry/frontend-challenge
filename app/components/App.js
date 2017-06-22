@@ -1,45 +1,14 @@
-import React from 'react';
+import React, { Component } from 'react';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 
-import injectTapEventPlugin from 'react-tap-event-plugin';
-import getMuiTheme from 'material-ui/styles/getMuiTheme';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
+import Main from '../components/Main.js';
 
-import {EmployeeList} from './EmployeeList.js'
-import {DetailedInfo} from './DetailedInfo.js'
-
-injectTapEventPlugin();
-
-const muiTheme = {
-  palette: {
-    primary1Color: "#f4ad49",
-    primary2Color: "#f4ad49",
-    lightTextColor: "#c0aeb4",
-    darkTextColor: "red"
-  }
-};
-
-export default function App(props) {
-    const openedEmployee = props.openedEmployee;
+export default function App (props) {
 
     return (
-      <MuiThemeProvider muiTheme={getMuiTheme(muiTheme)}>
-        <div className="page">
-          <div className="header">
-            List
-          </div>
-
-          <Router>
-            <div className="content">
-            <Route path='/' render={(routeProps) => (<EmployeeList {...routeProps}  {...props} />)} />
-              <div className="detailed-info-area">
-                <Route path='/:employeeId' render={(routeProps) => (<DetailedInfo employee={openedEmployee}  {...routeProps}  {...props} />)} />
-              </div>
-            </div>
-          </Router>
-
-        </div>
-      </MuiThemeProvider>
+      <Router>
+        <Route path='/:employeeId?' render={(routeProps) => <Main {...routeProps} {...props}/>}/>
+      </Router>
     );
-  }
+
+}

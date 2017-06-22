@@ -51,7 +51,7 @@ class EmployeeStore extends ReduceStore {
           profileFilledPercentage: 70
         }
       ],
-      openedEmployeeId: 1
+      openedEmployeeId: null
     }).toOrderedMap();
   }
 
@@ -79,7 +79,14 @@ class EmployeeStore extends ReduceStore {
         });
 
       case ActionTypes.OPEN_EMPLOYEE:
-        return state.set('openedEmployeeId', action.id);
+        let employeeId = action.id;
+        if (typeof employeeId == 'number') {
+          let index = state.get('employeeList').findIndex(e => e.get('id') == action.id);
+          if (index != -1) {
+            return state.set('openedEmployeeId', action.id);
+          }
+        }
+        return state;
 
       case ActionTypes.CLOSE_EMPLOYEE:
         return state.set('openedEmployeeId', null);
