@@ -19,11 +19,11 @@
     $size: 93px;
     width: $size;
     height: $size;
-    background-color: #85d4e2;
     border: 1px solid $border-color;
     border-radius: 100%;
     margin-right: 22px;
     flex-shrink: 0;
+    overflow: hidden;
   }
 
   &__info-container {}

@@ -18,7 +18,9 @@ export function EmployeeListItem (props) {
 
     return (
       <div className="list-item" onClick={deleteEmployee}>
-        <div className="list-item__avatar"></div>
+        <div className="list-item__avatar">
+          <img src="http://dummyimage.com/93/85d4e2&text=placeholder" />
+        </div>
         <div className="list-item__info-container">
           <div className="list-item__name">
             {employee.firstName} {employee.lastName}
