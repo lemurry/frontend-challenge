@@ -21,7 +21,7 @@ const muiTheme = {
 };
 
 export default function App(props) {
-    const openedEmployee = props.employeeList.find(employee => employee.isOpened);
+    const openedEmployee = props.openedEmployee;
 
     return (
       <MuiThemeProvider muiTheme={getMuiTheme(muiTheme)}>

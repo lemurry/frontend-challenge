@@ -9,8 +9,7 @@ const Employee = Immutable.Record({
   gender: 1,
   dateOfBirth: '',
   description: '',
-  profileFilledPercentage: 0,
-  isOpened: false
+  profileFilledPercentage: 0
 });
 
 export default Employee;

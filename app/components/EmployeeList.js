@@ -11,11 +11,10 @@ import {
 export function EmployeeList (props) {
     const rows = props.employeeList.sort((a, b) => {
       return a.id - b.id;
-    }).map((e) => {
-      return <EmployeeListItem employee={e} key={e.id} {...props}/>;
-    });
+    }).map(e => <EmployeeListItem employee={e} key={e.id} {...props}/>);
 
     return (
+
       <div className="list">
           <div className="add-button" onClick={props.onAdd} />
         <div>
