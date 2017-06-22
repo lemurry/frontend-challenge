@@ -24,6 +24,7 @@ function getState() {
 
     onAdd: ActionCreator.addEmployee,
     onDelete: ActionCreator.deleteEmployee,
+    onOpen: ActionCreator.openEmployee,
   };
 }
 export default Container.createFunctional(App, getStores, getState);

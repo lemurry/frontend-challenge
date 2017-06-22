@@ -52,7 +52,7 @@ const EditEmployeeInfo = (props) => {
     }
   }
 
-  const employee = props.employee;
+  const employee = props.openedEmployee;
 
   var skillList = ['angular.js', 'nodejs', 'react', 'html5', 'css3'];
 

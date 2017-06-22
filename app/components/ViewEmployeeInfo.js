@@ -2,11 +2,10 @@ import React from 'react';
 import {EmployeeStore} from '../data/EmployeeStore.js';
 
 export function ViewEmployeeInfo(props) {
-  let id = props.match.params.employeeId;
-  const employee = props.employee
-  const skills = employee.skills.map(skill => <div className="view-info__skill" key={skill.id}>
-    {skill.name}
-  </div>);
+    const employee = props.openedEmployee;
+  // const skills = employee.skills.map(skill => <div className="view-info__skill" key={skill.id}>
+  //   {skill.name}
+  // </div>);
 
   return (
     <div className="detailed-info-container">
@@ -30,7 +29,7 @@ export function ViewEmployeeInfo(props) {
         </div>
 
         <div className="view-info__skills-list">
-          {skills}
+          skills
         </div>
 
         <div className="view-info__description">

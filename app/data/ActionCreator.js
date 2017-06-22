@@ -15,6 +15,13 @@ const Actions = {
       id,
     });
   },
+
+    openEmployee(id) {
+      AppDispatcher.dispatch({
+        type: ActionTypes.OPEN_EMPLOYEE,
+        id,
+      });
+    },
 };
 
 export default Actions;

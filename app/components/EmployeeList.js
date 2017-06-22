@@ -9,9 +9,10 @@ import {
 } from 'react-router-dom';
 
 export function EmployeeList (props) {
-    const rows = props.employeeList.sort((a, b) => {
-      return a.id - b.id;
-    }).map(e => <EmployeeListItem employee={e} key={e.id} {...props}/>);
+    const rows = props.employeeList.map((employee) => {
+      let opened = employee.id == props.openedEmployee.id;
+      return <EmployeeListItem employee={employee} key={employee.id} {...props} opened={opened}/>
+    });
 
     return (
 

@@ -32,9 +32,9 @@ export default function App(props) {
 
           <Router>
             <div className="content">
-              <EmployeeList {...props}/>
+            <Route path='/' render={(routeProps) => (<EmployeeList {...routeProps}  {...props} />)} />
               <div className="detailed-info-area">
-                <Route path='/:employeeId' render={(props) => (<DetailedInfo employee={openedEmployee} />)} />
+                <Route path='/:employeeId' render={(routeProps) => (<DetailedInfo employee={openedEmployee}  {...routeProps}  {...props} />)} />
               </div>
             </div>
           </Router>

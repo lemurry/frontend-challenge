@@ -7,15 +7,13 @@ import {ViewEmployeeInfo} from './ViewEmployeeInfo.js';
 import EditEmployeeInfo from './EditEmployeeInfo.js'
 
 export function DetailedInfo(props) {
-    const employee = props.employee;
-
       return (
         <div className="detailed-info">
           <CloseButton/>
           <Router>
             <Switch>
-              <Route exact path='/:employeeId/view' render={(props) => (<ViewEmployeeInfo employee={employee} {...props}/>)}/>
-              <Route exact path='/:employeeId/edit' render={(props) => (<EditEmployeeInfo employee={employee} {...props}/>)}/>
+              <Route exact path='/:employeeId/view' render={(routeProps) => (<ViewEmployeeInfo {...props} {...routeProps} />)}/>
+              <Route exact path='/:employeeId/edit' render={(routeProps) => (<EditEmployeeInfo {...props} {...routeProps} />)}/>
             </Switch>
           </Router>
         </div>
