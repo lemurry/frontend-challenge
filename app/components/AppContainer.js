@@ -17,7 +17,6 @@ function getState() {
   let openedEmployeeId = state.get('openedEmployeeId');
   // let openedEmployee = employeeList.find(e =>  e.get('id') == openedEmployeeId).toJS();
   let openedEmployee = employeeList.find(e => e.id == openedEmployeeId);
-  // debugger;
   return {
     employeeList: employeeList,
     openedEmployee: openedEmployee,

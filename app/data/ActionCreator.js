@@ -1,6 +1,8 @@
 import ActionTypes from './ActionTypes';
 import AppDispatcher from './AppDispatcher';
 
+import axios from 'axios';
+
 const Actions = {
   addEmployee(employee) {
     AppDispatcher.dispatch({

@@ -17,7 +17,7 @@ class EmployeeStore extends ReduceStore {
 
   getInitialState() {
     return Immutable.fromJS({
-      employeeList: [{
+      employeeList: [new Employee({
           id: 0,
           firstName: "F.Name 0",
           lastName: "L.Name 0",
@@ -27,8 +27,8 @@ class EmployeeStore extends ReduceStore {
           dateOfBirth: '',
           description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
           profileFilledPercentage: 100
-        },
-        {
+        }),
+        new Employee({
           id: 1,
           firstName: "F.Name 1",
           lastName: "L.Name 1",
@@ -38,8 +38,8 @@ class EmployeeStore extends ReduceStore {
           dateOfBirth: '',
           description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
           profileFilledPercentage: 20
-        },
-        {
+        }),
+        new Employee({
           id: 2,
           firstName: "F.Name 2",
           lastName: "L.Name 2",
@@ -49,7 +49,7 @@ class EmployeeStore extends ReduceStore {
           dateOfBirth: '',
           description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
           profileFilledPercentage: 70
-        }
+        })
       ],
       openedEmployeeId: null
     }).toOrderedMap();
@@ -60,7 +60,7 @@ class EmployeeStore extends ReduceStore {
     switch (action.type) {
       case ActionTypes.ADD_EMPLOYEE:
         let id = Counter.increment();
-        return state.update('employeeList', list => list.push(Immutable.fromJS({
+        return state.update('employeeList', list => list.push(Immutable.fromJS(new Employee({
           id: id,
           firstName: "New " + id,
           lastName: "Item " + id,
@@ -70,7 +70,7 @@ class EmployeeStore extends ReduceStore {
           dateOfBirth: '',
           description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
           profileFilledPercentage: 20
-        })));
+        }))));
 
       case ActionTypes.DELETE_EMPLOYEE:
         return state.update('employeeList', (list) => {

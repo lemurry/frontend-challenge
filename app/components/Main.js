@@ -22,37 +22,32 @@ const muiTheme = {
 
 export default class Main extends Component {
 
-constructor(props){
-  super(props)
-}
+  constructor(props) {
+    super(props)
+  }
 
-componentDidMount(){
-  let id = this.props.match.params.employeeId;
+  componentDidMount() {
+    let id = this.props.match.params.employeeId;
+    // debugger;
     this.props.onOpen(id);
-}
+  }
 
-componentWillReceiveProps(nextProps) {
-  let id = nextProps.match.params.employeeId;
-    this.props.onOpen(id);
-}
-
-render() {
-  let t = this.props;
-  // debugger;
-  return (
-    <MuiThemeProvider muiTheme={getMuiTheme(muiTheme)}>
-      <div className="page">
-        <div className="header">
-          List
-        </div>
+  render() {
+    // debugger;
+    return (
+      <MuiThemeProvider muiTheme={getMuiTheme(muiTheme)}>
+        <div className="page">
+          <div className="header">
+            List
+          </div>
 
           <div className="content">
             <EmployeeList {...this.props}/>
             <Route path='/:employeeId' render={(routeProps) => (<DetailedInfo {...routeProps} {...this.props}/>)}/>
           </div>
 
-      </div>
-    </MuiThemeProvider>
-  );
-}
+        </div>
+      </MuiThemeProvider>
+    )
+  }
 }
