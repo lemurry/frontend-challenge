@@ -9,6 +9,7 @@ export function EmployeeList(props) {
     // let opened = employee.id == props.openedEmployee.id; opened={opened}
     return <EmployeeListItem employee={employee} key={employee.id} {...props}/>
   });
+// debugger;
 
   return (
 

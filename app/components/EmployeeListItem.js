@@ -9,21 +9,19 @@ export function EmployeeListItem(props) {
   const skills = employee.skills.map(skill => <div className="list-item__skill" key={skill.id}>
     {skill.name}
   </div>);
-  const className = props.opened
-    ? "list-item opened"
-    : "list-item";
+  // const className = props.opened
+  //   ? "list-item opened"
+  //   : "list-item";
 
   const deleteEmployee = () => props.onDelete(employee.id);
 
   const openEmployee = () => {
     props.history.push(`/${employee.id}/view`);
-    props.onOpen(employee.id);
+    // props.onOpen(employee.id);
   }
-
   return (
     <div className="list-item" onClick={openEmployee}>
       <div className="list-item__avatar">
-        <img src="http://dummyimage.com/93/85d4e2&text=placeholder"/>
       </div>
       <div className="list-item__info-container">
         <div className="list-item__name">
@@ -34,7 +32,7 @@ export function EmployeeListItem(props) {
           {employee.status}
         </div>
         <div className="list-item__skills-list">
-          {skills}
+          skills
         </div>
       </div>
     </div>

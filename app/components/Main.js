@@ -31,11 +31,13 @@ componentDidMount(){
     this.props.onOpen(id);
 }
 
+componentWillReceiveProps(nextProps) {
+  let id = nextProps.match.params.employeeId;
+    this.props.onOpen(id);
+}
 
 render() {
-  const openedEmployee = (this.props.openedEmployee)
-    ? this.props.openedEmployee
-    : null;
+  let t = this.props;
   // debugger;
   return (
     <MuiThemeProvider muiTheme={getMuiTheme(muiTheme)}>
@@ -44,12 +46,10 @@ render() {
           List
         </div>
 
-        <Router>
           <div className="content">
             <EmployeeList {...this.props}/>
-            <Route path='/:employeeId' render={(routeProps) => (<DetailedInfo employee={openedEmployee} {...routeProps} {...this.props}/>)}/>
+            <Route path='/:employeeId' render={(routeProps) => (<DetailedInfo {...routeProps} {...this.props}/>)}/>
           </div>
-        </Router>
 
       </div>
     </MuiThemeProvider>
