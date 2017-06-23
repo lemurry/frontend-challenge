@@ -80,7 +80,7 @@ class EmployeeStore extends ReduceStore {
 
       case ActionTypes.OPEN_EMPLOYEE:
         let employeeId = action.id;
-        if (typeof employeeId == 'number') {
+        if (typeof employeeId != 'undefined') {
           let index = state.get('employeeList').findIndex(e => e.get('id') == action.id);
           if (index != -1) {
             return state.set('openedEmployeeId', action.id);

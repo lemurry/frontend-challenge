@@ -1,4 +1,6 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
+
 import {EmployeeStore} from '../data/EmployeeStore.js';
 
 export function ViewEmployeeInfo(props) {
@@ -8,7 +10,7 @@ export function ViewEmployeeInfo(props) {
   // </div>);
 
   const onEdit = () => {
-    props.history.push(`${employee.id}/edit`);
+    props.history.push('edit');
   }
 
   return (
@@ -41,7 +43,9 @@ export function ViewEmployeeInfo(props) {
           {employee.description}
         </div>
       </div>
-      <div onClick={onEdit}> Edit </div>
+      <Link to={`/${employee.id}/edit`}>Edit</Link>
     </div>
   )
 }
+
+// <div onClick={onEdit}> Edit </div>
