@@ -22,7 +22,23 @@ class EmployeeStore extends ReduceStore {
           firstName: "F.Name 0",
           lastName: "L.Name 0",
           status: "some text",
-          skills: [],
+          skills: [
+            {
+              id: 0
+            },
+            {
+              id: 1
+            },
+            {
+              id: 3
+            },
+            {
+              id: 5
+            },
+            {
+              id: 4
+            }
+          ],
           gender: 1,
           dateOfBirth: '',
           description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
@@ -33,7 +49,14 @@ class EmployeeStore extends ReduceStore {
           firstName: "F.Name 1",
           lastName: "L.Name 1",
           status: "some text",
-          skills: [],
+          skills: [
+            {
+              id: 0
+            },
+            {
+              id: 1
+            },
+          ],
           gender: 1,
           dateOfBirth: '',
           description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
@@ -44,7 +67,14 @@ class EmployeeStore extends ReduceStore {
           firstName: "F.Name 2",
           lastName: "L.Name 2",
           status: "some text",
-          skills: [],
+          skills: [
+            {
+              id: 0
+            },
+            {
+              id: 3
+            },
+          ],
           gender: 1,
           dateOfBirth: '',
           description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",

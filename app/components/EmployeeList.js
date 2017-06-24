@@ -11,10 +11,15 @@ export function EmployeeList(props) {
   });
 // debugger;
 
+const addEmployee = () => {
+  props.history.push(`/add`);
+  // props.onAdd();
+}
+
   return (
 
     <div className="list">
-      <div className="add-button" onClick={props.onAdd}/>
+      <div className="add-button" onClick={addEmployee}/>
       <div>
         {rows}
       </div>

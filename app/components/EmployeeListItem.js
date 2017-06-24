@@ -7,7 +7,7 @@ import {BrowserRouter as Router, Route, Link} from 'react-router-dom'
 export function EmployeeListItem(props) {
   const employee = props.employee;
   const skills = employee.skills.map(skill => <div className="list-item__skill" key={skill.id}>
-    {skill.name}
+    {skill.id}
   </div>);
   // const className = props.opened
   //   ? "list-item opened"
@@ -16,7 +16,7 @@ export function EmployeeListItem(props) {
   const deleteEmployee = () => props.onDelete(employee.id);
 
   const openEmployee = () => {
-    props.history.push(`/${employee.id}/view`);
+    props.history.push(`/info/${employee.id}/view`);
     props.onOpen(employee.id);
   }
 
@@ -29,8 +29,6 @@ export function EmployeeListItem(props) {
     if (employee.dateOfBirth) res += 5;
     if (employee.status) res += 10;
     if (employee.description) res += 10;
-
-    // if (employee.) res += 5;
     employee.skills.forEach(s => res += 5);
     return res
   }
@@ -58,7 +56,7 @@ export function EmployeeListItem(props) {
           {employee.status}
         </div>
         <div className="list-item__skills-list">
-          skills
+          {skills}
         </div>
       </div>
     </div>
