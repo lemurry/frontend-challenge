@@ -4,14 +4,16 @@ import {Link} from 'react-router-dom';
 import {EmployeeStore} from '../data/EmployeeStore.js';
 
 export function ViewEmployeeInfo(props) {
+let t = props;
+// debugger;
   const employee = props.openedEmployee;
   const skills = employee.skills.map(skill => <div className="view-info__skill" key={skill.id}>
     {skill.name}
   </div>);
 
-  const onEdit = () => {
-    props.history.push('edit');
-  }
+  // const onEdit = () => {
+  //   props.history.push('edit');
+  // }
 
   return (
     <div className="detailed-info-container">
@@ -43,7 +45,7 @@ export function ViewEmployeeInfo(props) {
           {employee.description}
         </div>
       </div>
-      <Link to={`/${employee.id}/edit`}>Edit</Link>
+      <Link to={`/info/${employee.id}/edit`}>Edit</Link>
     </div>
   )
 }

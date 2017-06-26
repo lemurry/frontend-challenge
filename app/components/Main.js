@@ -30,7 +30,7 @@ export default class Main extends Component {
   componentDidMount() {
     let id = this.props.match.params.employeeId;
     // debugger;
-    this.props.onOpen(id);
+    // this.props.onOpen(id);
   }
 
   render() {
@@ -45,10 +45,10 @@ export default class Main extends Component {
           <div className="content">
             <EmployeeList {...this.props}/>
 
-                <div className="detailed-info-area">
-            <Route exact path='/add' render={(routeProps) => (<AddEmployee {...routeProps} {...this.props}/>)}/>
-            <Route path='/:employeeId' render={(routeProps) => (<DetailedInfo {...routeProps} {...this.props}/>)}/>
-          </div>
+            <div className="detailed-info-area">
+              <Route exact path='/add' render={(routeProps) => (<AddEmployee {...this.props} {...routeProps}/>)}/>
+              <Route path='/info/:employeeId?/' render={(routeProps) => (<DetailedInfo {...this.props} {...routeProps}/>)}/>
+            </div>
           </div>
 
         </div>

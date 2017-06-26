@@ -7,7 +7,7 @@ export default function App (props) {
 
     return (
       <Router>
-        <Route path='/:employeeId?' render={(routeProps) => <Main {...routeProps} {...props}/>}/>
+        <Route path='/' render={(routeProps) => <Main {...routeProps} {...props}/>}/>
       </Router>
     );
 

@@ -6,18 +6,32 @@ import {CloseButton} from './CloseButton.js';
 import {ViewEmployeeInfo} from './ViewEmployeeInfo.js';
 import EditEmployeeInfo from './EditEmployeeInfo.js'
 
-export function DetailedInfo(props) {
+export class DetailedInfo extends Component {
+
+  constructor(props) {
+    super(props)
+  }
+
+  componentDidMount() {
+    let id = this.props.match.params.employeeId;
+    // debugger;
+    this.props.onOpen(id);
+  }
+
+  render() {
+let t = this.props;
 // debugger;
   return (
-    <div>
-      {props.openedEmployee && <div className="detailed-info">
-        <CloseButton {...props}/>
+    <div className="detailed-info">
+      {this.props.openedEmployee && <div>
+        <CloseButton {...this.props}/>
           <Switch>
-            <Route exact path='/:employeeId/view' render={(routeProps) => (<ViewEmployeeInfo {...props} {...routeProps} {...props}/>)}/>
-            <Route exact path='/:employeeId/edit' render={(routeProps) => (<EditEmployeeInfo {...props} {...routeProps} {...props}/>)}/>
+            <Route path='/info/:employeeId/view' render={(routeProps) => (<ViewEmployeeInfo {...this.props} {...routeProps}/>)}/>
+            <Route path='/info/:employeeId/edit' render={(routeProps) => (<EditEmployeeInfo {...this.props} {...routeProps}/>)}/>
           </Switch>
       </div>
       }
     </div>
   )
+}
 }

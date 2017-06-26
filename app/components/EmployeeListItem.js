@@ -16,7 +16,7 @@ export function EmployeeListItem(props) {
   const deleteEmployee = () => props.onDelete(employee.id);
 
   const openEmployee = () => {
-    props.history.push(`/${employee.id}/view`);
+    props.history.push(`/info/${employee.id}/view`);
     props.onOpen(employee.id);
   }
 
