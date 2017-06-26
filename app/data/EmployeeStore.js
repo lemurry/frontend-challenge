@@ -60,7 +60,7 @@ class EmployeeStore extends ReduceStore {
                 name: 'html5'
               }
           ],
-          gender: 1,
+          gender: 2,
           dateOfBirth: '',
           description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
           profileFilledPercentage: 20

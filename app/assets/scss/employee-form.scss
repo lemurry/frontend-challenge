@@ -100,8 +100,13 @@
     label {
       font-size:23px;
       color: white;
-      top: 30px;
+      top: 30px !important;
       left: 27px;
+    }
+
+    div {
+      margin-top: 0 !important;
+
     }
   }
 
@@ -111,9 +116,16 @@
     box-shadow: 0 2px 1px 1px #a78453;
     color: white !important;
     font-size: 23px !important;
-    //lifehack will need to change if somthing will be changed
+    //lifehacks will need to be change if something is changed
     div > div {
       color: white !important;
     }
   }
+}
+div[role=menu]{
+  padding: 8px 0 !important;
+}
+
+span[role=menuitem] {
+  padding: 16px 0 !important;
 }

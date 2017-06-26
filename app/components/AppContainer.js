@@ -13,16 +13,16 @@ function getStores() {
 
 function getState() {
   let state = EmployeeStore.getState();
-  let employeeList = state.get('employeeList').toJS();
-  let openedEmployeeId = state.get('openedEmployeeId');
-  let openedEmployee = employeeList.find(e => e.id == openedEmployeeId);
+    let employeeList = state.get('employeeList').toJS();
+    let openedEmployeeId = state.get('openedEmployeeId');
+    let openedEmployee = employeeList.find(e => e.id == openedEmployeeId);
 
   return {
     employeeList: employeeList,
     openedEmployee: openedEmployee,
 
     onAdd: ActionCreator.addEmployee,
-    onTest: ActionCreator.getTest,
+    onGetAllEmployee: ActionCreator.getAllEmployee,
     onDelete: ActionCreator.deleteEmployee,
     onOpen: ActionCreator.openEmployee,
     onClose: ActionCreator.closeEmployee

@@ -1,33 +1,17 @@
 {
-  "posts": [
-    { "id": 1, "title": "json-server", "author": "typicode" }
-  ],
-  "comments": [
-    { "id": 1, "body": "some comment", "postId": 1 }
-  ],
-  "profile": { "name": "typicode" }
-}
-
-
-{
-  "employees": [
-    {
+  "employees": [{
       "id": 0,
       "firstName": "F.Name 0",
       "lastName": "L.Name 0",
       "status": "some text",
-      "skills": [
-        {
-          "id": 0,
-          "name": "react.js"
+      "skills": [{
+          "id": 0
         },
         {
-          "id": 1,
-          "name": "angular.js"
+          "id": 1
         },
         {
-          "id": 2,
-          "name": "scss"
+          "id": 2
         }
       ],
       "gender": 1,
@@ -40,19 +24,15 @@
       "firstName": "F.Name 1",
       "lastName": "L.Name 1",
       "status": "some text",
-      "skills": [
-        {
-          "id": 1,
-          "name": "angular.js"
+      "skills": [{
+          "id": 1
         },
         {
-          "id": 2,
-          "name": "scss"
+          "id": 2
         },
-          {
-            "id": 4,
-            "name": "html5"
-          }
+        {
+          "id": 4
+        }
       ],
       "gender": 1,
       "dateOfBirth": "",
@@ -64,12 +44,9 @@
       "firstName": "F.Name 2",
       "lastName": "L.Name 2",
       "status": "some text",
-      "skills": [
-        {
-          "id": 3,
-          "name": "node.js"
-        }
-      ],
+      "skills": [{
+        "id": 3
+      }],
       "gender": 1,
       "dateOfBirth": "",
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
@@ -77,4 +54,37 @@
     }
   ],
   "openedEmployeeId": null,
+  "skills": [{
+      "id": 0,
+      "name": "react.js"
+    },
+    {
+      "id": 1,
+      "name": "angular 1.x"
+    },
+    {
+      "id": 2,
+      "name": "angular 2"
+    },
+    {
+      "id": 3,
+      "name": "node.js"
+    },
+    {
+      "id": 4,
+      "name": "scss"
+    },
+    {
+      "id": 5,
+      "name": "less"
+    },
+    {
+      "id": 6,
+      "name": "html5"
+    },
+    {
+      "id": 7,
+      "name": "css3"
+    }
+  ]
 }

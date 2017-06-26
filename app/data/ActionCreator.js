@@ -4,16 +4,15 @@ import AppDispatcher from './AppDispatcher';
 import axios from 'axios';
 
 const Actions = {
-  getInitialState() {
-    AppDispatcher.dispatch({
-      type: ActionTypes.GET_INITIAL_STATE
-    });
-  },
 
-  getAllEmployee() {
-    AppDispatcher.dispatch({
-      type: ActionTypes.GET_ALL_EMPLOYEE
-    });
+  getAllEmployees() {
+    axios.get(`http://localhost:3000/employees`)
+      .then(res => {
+        AppDispatcher.dispatch({
+          type: ActionTypes.GET_ALL_EMPLOYEE,
+          res
+        });
+      })
   },
 
   addEmployee(employee) {

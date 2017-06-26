@@ -60,6 +60,8 @@ const EditEmployeeInfo = (props) => {
 
   function deleteItem() {}
 
+  const handleSelectChange = (event, index, value) => employee.gender = value;
+
   return (
     <div className="detailed-info-container">
       <div className="left-column">
@@ -86,7 +88,8 @@ const EditEmployeeInfo = (props) => {
 
         <div className="employee-form__row">
 
-          <SelectField floatingLabelFixed={false} menuItemStyle={styles.menuItemStyle} underlineShow={false} floatingLabelText="Select Gender" className="employee-form__select" floatingLabelStyle={styles.selectStyle} listStyle={styles.selectListStyle}>
+          <SelectField value={employee.gender} onChange={handleSelectChange} floatingLabelFixed={false} menuItemStyle={styles.menuItemStyle} underlineShow={false} floatingLabelText="Select Gender" className="employee-form__select" floatingLabelStyle={styles.selectStyle} listStyle={styles.selectListStyle}>
+            <MenuItem value={0} primaryText="Select Gender"/>
             <MenuItem value={1} primaryText="Male"/>
             <MenuItem value={2} primaryText="Female"/>
           </SelectField>
