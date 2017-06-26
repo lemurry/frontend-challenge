@@ -37,7 +37,7 @@ class EmployeeStore extends ReduceStore {
             }
           ],
           gender: 1,
-          dateOfBirth: '',
+          dateOfBirth: new Date(),
           description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
           profileFilledPercentage: 100
         }),
@@ -61,7 +61,7 @@ class EmployeeStore extends ReduceStore {
               }
           ],
           gender: 2,
-          dateOfBirth: '',
+          dateOfBirth: new Date(),
           description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
           profileFilledPercentage: 20
         }),
@@ -77,7 +77,7 @@ class EmployeeStore extends ReduceStore {
             }
           ],
           gender: 1,
-          dateOfBirth: '',
+          dateOfBirth: new Date(),
           description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
           profileFilledPercentage: 70
         })

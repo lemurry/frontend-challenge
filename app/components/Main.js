@@ -13,12 +13,6 @@ import AddEmployee from './AddEmployee.js'
 injectTapEventPlugin();
 
 const muiTheme = {
-  palette: {
-    primary1Color: "#f4ad49",
-    primary2Color: "#f4ad49",
-    lightTextColor: "#c0aeb4",
-    darkTextColor: "red"
-  }
 };
 
 export default class Main extends Component {
