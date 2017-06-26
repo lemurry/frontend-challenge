@@ -63,10 +63,6 @@
     }
   }
 
-  &__datepicker {
-    background-color: $orange-color;
-  }
-
   &__skill-list {
     @include input;
     padding: 0 3px;
@@ -94,20 +90,30 @@
   }
 
   &__select {
-  background-color: $orange-color !important;
+    background-color: $orange-color !important;
     border-radius: 6px;
-    box-shadow: 0px 2px 1px 1px #a78453;
+    box-shadow: 0 2px 1px 1px #a78453;
     color: white !important;
     font-size: 23px !important;
-
     margin-right: 30px;
+
+    label {
+      font-size:23px;
+      color: white;
+      top: 30px;
+      left: 27px;
+    }
   }
 
   &__datepicker {
     background-color: $orange-color !important;
     border-radius: 6px;
-    box-shadow: 0px 2px 1px 1px #a78453;
+    box-shadow: 0 2px 1px 1px #a78453;
     color: white !important;
     font-size: 23px !important;
+    //lifehack will need to change if somthing will be changed
+    div > div {
+      color: white !important;
+    }
   }
 }

@@ -8,6 +8,7 @@ import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
 
 import {EmployeeList} from './EmployeeList.js'
 import {DetailedInfo} from './DetailedInfo.js'
+import AddEmployee from './AddEmployee.js'
 
 injectTapEventPlugin();
 
@@ -43,7 +44,11 @@ export default class Main extends Component {
 
           <div className="content">
             <EmployeeList {...this.props}/>
+
+                <div className="detailed-info-area">
+            <Route exact path='/add' render={(routeProps) => (<AddEmployee {...routeProps} {...this.props}/>)}/>
             <Route path='/:employeeId' render={(routeProps) => (<DetailedInfo {...routeProps} {...this.props}/>)}/>
+          </div>
           </div>
 
         </div>

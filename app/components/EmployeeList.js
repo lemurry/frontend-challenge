@@ -9,12 +9,16 @@ export function EmployeeList(props) {
     // let opened = employee.id == props.openedEmployee.id; opened={opened}
     return <EmployeeListItem employee={employee} key={employee.id} {...props}/>
   });
-// debugger;
+
+  const addEmployee = () => {
+    props.onClose();
+    props.history.push(`/add`);
+    // props.onAdd();
+  }
 
   return (
-
     <div className="list">
-      <div className="add-button" onClick={props.onAdd}/>
+      <div className="add-button" onClick={addEmployee}/>
       <div>
         {rows}
       </div>

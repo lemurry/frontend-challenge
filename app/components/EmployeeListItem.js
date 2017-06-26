@@ -29,8 +29,6 @@ export function EmployeeListItem(props) {
     if (employee.dateOfBirth) res += 5;
     if (employee.status) res += 10;
     if (employee.description) res += 10;
-
-    // if (employee.) res += 5;
     employee.skills.forEach(s => res += 5);
     return res
   }
@@ -58,7 +56,7 @@ export function EmployeeListItem(props) {
           {employee.status}
         </div>
         <div className="list-item__skills-list">
-          skills
+          {skills}
         </div>
       </div>
     </div>

@@ -9,8 +9,7 @@ import EditEmployeeInfo from './EditEmployeeInfo.js'
 export function DetailedInfo(props) {
 // debugger;
   return (
-
-    <div className="detailed-info-area">
+    <div>
       {props.openedEmployee && <div className="detailed-info">
         <CloseButton {...props}/>
           <Switch>
