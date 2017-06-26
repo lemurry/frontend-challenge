@@ -82,13 +82,17 @@ class EmployeeStore extends ReduceStore {
           profileFilledPercentage: 70
         })
       ],
-      openedEmployeeId: null
+      openedEmployeeId: null,
     }).toOrderedMap();
   }
 
   reduce(state, action) {
 
     switch (action.type) {
+
+      case ActionTypes.GET_ALL_EMPLOYEES:
+        return state.get('employeeList');
+
       case ActionTypes.ADD_EMPLOYEE:
         let id = Counter.increment();
         return state.update('employeeList', list => list.push(Immutable.fromJS(new Employee({

@@ -28,13 +28,9 @@ export default class Main extends Component {
   }
 
   componentDidMount() {
-    let id = this.props.match.params.employeeId;
-    // debugger;
-    // this.props.onOpen(id);
   }
 
   render() {
-    // debugger;
     return (
       <MuiThemeProvider muiTheme={getMuiTheme(muiTheme)}>
         <div className="page">
@@ -47,7 +43,7 @@ export default class Main extends Component {
 
             <div className="detailed-info-area">
               <Route exact path='/add' render={(routeProps) => (<AddEmployee {...this.props} {...routeProps}/>)}/>
-              <Route path='/info/:employeeId?/' render={(routeProps) => (<DetailedInfo {...this.props} {...routeProps}/>)}/>
+              <Route path='/info/:employeeId' render={(routeProps) => (<DetailedInfo {...this.props} {...routeProps}/>)}/>
             </div>
           </div>
 

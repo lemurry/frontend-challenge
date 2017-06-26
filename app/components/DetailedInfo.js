@@ -14,13 +14,10 @@ export class DetailedInfo extends Component {
 
   componentDidMount() {
     let id = this.props.match.params.employeeId;
-    // debugger;
     this.props.onOpen(id);
   }
 
   render() {
-let t = this.props;
-// debugger;
   return (
     <div className="detailed-info">
       {this.props.openedEmployee && <div>

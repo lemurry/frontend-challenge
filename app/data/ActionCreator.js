@@ -4,6 +4,18 @@ import AppDispatcher from './AppDispatcher';
 import axios from 'axios';
 
 const Actions = {
+  getInitialState() {
+    AppDispatcher.dispatch({
+      type: ActionTypes.GET_INITIAL_STATE
+    });
+  },
+
+  getAllEmployee() {
+    AppDispatcher.dispatch({
+      type: ActionTypes.GET_ALL_EMPLOYEE
+    });
+  },
+
   addEmployee(employee) {
     AppDispatcher.dispatch({
       type: ActionTypes.ADD_EMPLOYEE,
