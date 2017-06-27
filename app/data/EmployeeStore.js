@@ -38,7 +38,7 @@ class EmployeeStore extends ReduceStore {
           ],
           gender: 1,
           dateOfBirth: new Date(),
-          description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+          description: "",
           profileFilledPercentage: 100
         }),
         new Employee({
@@ -83,6 +83,7 @@ class EmployeeStore extends ReduceStore {
         })
       ],
       openedEmployeeId: null,
+      skillsList: null,
     }).toOrderedMap();
   }
 

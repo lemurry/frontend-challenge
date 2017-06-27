@@ -16,16 +16,17 @@ export default function AppAutoComplete (props) {
 
   let skillList = ['angular.js', 'nodejs', 'react', 'html5', 'css3'];
 
-  const deleteSkill = () => {};
+  const addSkill = (key) => props.onDeleteSkill(key);
+  const deleteSkill = (key) => props.onAddSkill(key);
 
   const handleChange = (event, index, value) => props.onChange(value);
-  const skills = props.skills.map(skill => <Chip onRequestDelete={deleteSkill.bind(this)} className="employee-form__skill" labelStyle={styles.skillStyle} key={skill.id}>
+  const skills = props.skills.map(skill => <Chip onRequestDelete={deleteSkill} className="employee-form__skill" labelStyle={styles.skillStyle} key={skill.id}>
     {skill.name}
   </Chip>);
   return (
     <div className="employee-form__skill-list">
       {skills}
-      <AutoComplete className="employee-form__auto-complete" hintText="start typing..." dataSource={skillList} underlineShow={false}/>
+      <AutoComplete className="employee-form__auto-complete" onNewRequest={addSkill} openOnFocus={true} hintText="start typing..." dataSource={skillList} underlineShow={false}/>
     </div>
   )
 }

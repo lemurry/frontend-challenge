@@ -12,14 +12,16 @@ function getStores() {
 }
 
 function getState() {
-  let state = EmployeeStore.getState();
+    let state = EmployeeStore.getState();
     let employeeList = state.get('employeeList').toJS();
     let openedEmployeeId = state.get('openedEmployeeId');
     let openedEmployee = employeeList.find(e => e.id == openedEmployeeId);
+    let skillsList = state.get('skillsList');
 
   return {
     employeeList: employeeList,
     openedEmployee: openedEmployee,
+    skillsList: skillsList,
 
     onAdd: ActionCreator.addEmployee,
     onGetAllEmployee: ActionCreator.getAllEmployee,

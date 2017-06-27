@@ -24,11 +24,11 @@ export default class EditEmployeeInfo extends Component {
 
   onDateChanged(date) {}
 
+  onAddSkill(key) {}
+
+  onDeleteSkill(key) {}
+
   render() {
-    const styles = {
-
-    }
-
     const employee = this.state.employee;
 
     return (
@@ -42,17 +42,12 @@ export default class EditEmployeeInfo extends Component {
 
         <div className="employee-form">
           <div className="employee-form__row employee-form__row--full">
-
-            <input className="employee-form__input employee-form__input--short" type="text" placeholder="First name"/>
-
-            <input className="employee-form__input employee-form__input--short" type="text" placeholder="Last name"/>
-
+            <input className="employee-form__input employee-form__input--short" type="text" placeholder="First name" value={employee.firstName}/>
+            <input className="employee-form__input employee-form__input--short" type="text" placeholder="Last name" value={employee.lastName}/>
           </div>
-          <input className="employee-form__input" type="text" placeholder="Some text"/>
+          <input className="employee-form__input" type="text" placeholder="Some text" value={employee.status}/>
 
-
-            <AppAutoComplete skills={employee.skills}/>
-
+          <AppAutoComplete skills={employee.skills} onAddSkill={this.onAddSkill} onDeleteSkill={this.onDeleteSkill}/>
 
           <div className="employee-form__row">
 
@@ -62,7 +57,7 @@ export default class EditEmployeeInfo extends Component {
 
           </div>
 
-          <textarea className="employee-form__textarea" rows="7" cols="45" name="text" placeholder="Add some description"/>
+          <textarea className="employee-form__textarea" rows="7" cols="45" name="text" placeholder="Add some description"  value={employee.description}/>
         </div>
       </div>
     )
