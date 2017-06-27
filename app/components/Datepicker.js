@@ -3,10 +3,9 @@ import ReactDOM from 'react-dom';
 
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import muiThemeable from 'material-ui/styles/muiThemeable';
 import DatePicker from 'material-ui/DatePicker';
 
-const AppDatePicker = (props) => {
+export default function AppDatePicker (props) {
   const styles = {
     datePickerStyle: {
       fontSize: '23px',
@@ -33,5 +32,3 @@ const AppDatePicker = (props) => {
     </MuiThemeProvider>
   )
 }
-
-export default muiThemeable()(AppDatePicker);

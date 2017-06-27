@@ -30,7 +30,7 @@ let t = props;
             {employee.lastName}
           </div>
           <div className="view-info__bio">
-            ({employee.gender}, {employee.dateOfBirth})
+            ({employee.gender}, {employee.dateOfBirth.toString()})
           </div>
         </div>
 

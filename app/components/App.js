@@ -10,5 +10,4 @@ export default function App (props) {
         <Route path='/' render={(routeProps) => <Main {...routeProps} {...props}/>}/>
       </Router>
     );
-
 }

@@ -12,16 +12,8 @@ import AddEmployee from './AddEmployee.js'
 
 injectTapEventPlugin();
 
-export default class Main extends Component {
+export default function Main (props) {
 
-  constructor(props) {
-    super(props)
-  }
-
-  componentDidMount() {
-  }
-
-  render() {
     return (
       <MuiThemeProvider muiTheme={getMuiTheme(darkBaseTheme)}>
         <div className="page">
@@ -30,11 +22,11 @@ export default class Main extends Component {
           </div>
 
           <div className="content">
-            <EmployeeList {...this.props}/>
+            <EmployeeList {...props}/>
 
             <div className="detailed-info-area">
-              <Route exact path='/add' render={(routeProps) => (<AddEmployee {...this.props} {...routeProps}/>)}/>
-              <Route path='/info/:employeeId' render={(routeProps) => (<DetailedInfo {...this.props} {...routeProps}/>)}/>
+              <Route exact path='/add' render={(routeProps) => (<AddEmployee {...props} {...routeProps}/>)}/>
+              <Route path='/info/:employeeId' render={(routeProps) => (<DetailedInfo {...props} {...routeProps}/>)}/>
             </div>
           </div>
 
@@ -42,4 +34,3 @@ export default class Main extends Component {
       </MuiThemeProvider>
     )
   }
-}

@@ -4,9 +4,9 @@ import ReactDOM from 'react-dom';
 import {EmployeeStore} from '../data/EmployeeStore.js';
 import EventTypes from '../data/EventTypes.js';
 
+import AppAutoComplete from './AppAutoComplete.js'
 import AppDatePicker from './DatePicker.js'
 import Select from './Select.js'
-import AppAutoComplete from './AppAutoComplete.js'
 
 export default class EditEmployeeInfo extends Component {
   constructor(props) {

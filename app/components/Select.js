@@ -3,11 +3,10 @@ import ReactDOM from 'react-dom';
 
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import muiThemeable from 'material-ui/styles/muiThemeable';
 import SelectField from 'material-ui/SelectField';
 import MenuItem from 'material-ui/MenuItem';
 
-const Select = (props) => {
+export default function Select (props) {
   const styles = {
     selectStyle: {
       fontSize: '23px',
@@ -50,5 +49,3 @@ const Select = (props) => {
     </MuiThemeProvider>
   )
 }
-
-export default muiThemeable()(Select);

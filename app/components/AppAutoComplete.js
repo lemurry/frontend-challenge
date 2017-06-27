@@ -1,14 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import getMuiTheme from 'material-ui/styles/getMuiTheme';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import muiThemeable from 'material-ui/styles/muiThemeable';
-import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
 import Chip from 'material-ui/Chip';
 import AutoComplete from 'material-ui/AutoComplete';
 
-const AppAutoComplete = (props) => {
+export default function AppAutoComplete (props) {
   const styles = {
     skillStyle: {
       fontSize: '23px',
@@ -33,5 +29,3 @@ const AppAutoComplete = (props) => {
     </div>
   )
 }
-
-export default muiThemeable()(AppAutoComplete);
