@@ -12,9 +12,6 @@ import AddEmployee from './AddEmployee.js'
 
 injectTapEventPlugin();
 
-const muiTheme = {
-};
-
 export default class Main extends Component {
 
   constructor(props) {
@@ -26,7 +23,7 @@ export default class Main extends Component {
 
   render() {
     return (
-      <MuiThemeProvider muiTheme={getMuiTheme(muiTheme)}>
+      <MuiThemeProvider muiTheme={getMuiTheme(darkBaseTheme)}>
         <div className="page">
           <div className="header">
             List

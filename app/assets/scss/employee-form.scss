@@ -95,18 +95,12 @@
     box-shadow: 0 2px 1px 1px #a78453;
     color: white !important;
     font-size: 23px !important;
-    margin-right: 30px;
-
-    label {
-      font-size:23px;
-      color: white;
-      top: 30px !important;
-      left: 27px;
-    }
+    margin-right: 30px !important;
+    height: auto !important;
 
     div {
       margin-top: 0 !important;
-
+      font-size: 23px !important;
     }
   }
 
@@ -119,10 +113,33 @@
     //lifehacks will need to be change if something is changed
     div > div {
       color: white !important;
+      font-size: 23px !important;
+    }
+
+    input {
+      color: white !important;
+      -webkit-text-fill-color: white !important;
+      font-size: 23px !important;
+    }
+  }
+
+  &__auto-complete {
+    padding: 0 17px;
+
+    div {
+      color: $light-text-color !important;
+      font-size: 23px !important;
+    }
+
+    input {
+      color: $dark-text-color !important;
+      -webkit-text-fill-color: $dark-text-color !important;
+      font-size: 23px !important;
     }
   }
 }
-div[role=menu]{
+
+div[role=menu] {
   padding: 8px 0 !important;
 }
 
