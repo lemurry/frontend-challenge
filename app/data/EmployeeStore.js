@@ -7,7 +7,6 @@ import Immutable from 'immutable';
 import Counter from './Counter.js';
 
 import ActionTypes from './ActionTypes.js';
-import EventTypes from './EventTypes.js';
 import Employee from './Employee.js';
 
 class EmployeeStore extends ReduceStore {
@@ -16,80 +15,16 @@ class EmployeeStore extends ReduceStore {
   }
 
   getInitialState() {
-    return Immutable.fromJS({
-      employeeList: [new Employee({
-          id: 0,
-          firstName: "F.Name 0",
-          lastName: "L.Name 0",
-          status: "some text",
-          skills: [
-            {
-              id: 0,
-              name: 'react.js'
-            },
-            {
-              id: 1,
-              name: 'angular.js'
-            },
-            {
-              id: 2,
-              name: 'scss'
-            }
-          ],
-          gender: 1,
-          dateOfBirth: new Date(),
-          description: "",
-          profileFilledPercentage: 100
-        }),
-        new Employee({
-          id: 1,
-          firstName: "F.Name 1",
-          lastName: "L.Name 1",
-          status: "some text",
-          skills: [
-            {
-              id: 1,
-              name: 'angular.js'
-            },
-            {
-              id: 2,
-              name: 'scss'
-            },
-              {
-                id: 4,
-                name: 'html5'
-              }
-          ],
-          gender: 2,
-          dateOfBirth: new Date(),
-          description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-          profileFilledPercentage: 20
-        }),
-        new Employee({
-          id: 2,
-          firstName: "F.Name 2",
-          lastName: "L.Name 2",
-          status: "some text",
-          skills: [
-            {
-              id: 3,
-              name: 'node.js'
-            }
-          ],
-          gender: 1,
-          dateOfBirth: new Date(),
-          description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-          profileFilledPercentage: 70
-        })
-      ],
-      openedEmployeeId: null,
-      skillsList: null,
-    }).toOrderedMap();
+    return Immutable.OrderedMap();
   }
 
   reduce(state, action) {
 
     switch (action.type) {
+
+      case ActionTypes.GET_WHOLE_STATE:
+        let newState = Immutable.fromJS(action.res.data).toOrderedMap();
+        return newState;
 
       case ActionTypes.GET_ALL_EMPLOYEES:
         return state.get('employeeList');
@@ -115,6 +50,7 @@ class EmployeeStore extends ReduceStore {
         });
 
       case ActionTypes.OPEN_EMPLOYEE:
+      // debugger;
         let employeeId = action.id;
         if (typeof employeeId != 'undefined') {
           let index = state.get('employeeList').findIndex(e => e.get('id') == action.id);
@@ -133,3 +69,73 @@ class EmployeeStore extends ReduceStore {
   }
 }
 export default new EmployeeStore();
+//
+// {
+//   employeeList: [new Employee({
+//       id: 0,
+//       firstName: "F.Name 0",
+//       lastName: "L.Name 0",
+//       status: "some text",
+//       skills: [
+//         {
+//           id: 0,
+//           name: 'react.js'
+//         },
+//         {
+//           id: 1,
+//           name: 'angular.js'
+//         },
+//         {
+//           id: 2,
+//           name: 'scss'
+//         }
+//       ],
+//       gender: 1,
+//       dateOfBirth: new Date(),
+//       description: "",
+//       profileFilledPercentage: 100
+//     }),
+//     new Employee({
+//       id: 1,
+//       firstName: "F.Name 1",
+//       lastName: "L.Name 1",
+//       status: "some text",
+//       skills: [
+//         {
+//           id: 1,
+//           name: 'angular.js'
+//         },
+//         {
+//           id: 2,
+//           name: 'scss'
+//         },
+//           {
+//             id: 4,
+//             name: 'html5'
+//           }
+//       ],
+//       gender: 2,
+//       dateOfBirth: new Date(),
+//       description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+//       profileFilledPercentage: 20
+//     }),
+//     new Employee({
+//       id: 2,
+//       firstName: "F.Name 2",
+//       lastName: "L.Name 2",
+//       status: "some text",
+//       skills: [
+//         {
+//           id: 3,
+//           name: 'node.js'
+//         }
+//       ],
+//       gender: 1,
+//       dateOfBirth: new Date(),
+//       description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+//       profileFilledPercentage: 70
+//     })
+//   ],
+//   openedEmployeeId: null,
+//   skillsList: null,
+// }

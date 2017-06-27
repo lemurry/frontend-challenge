@@ -14,17 +14,19 @@ export class DetailedInfo extends Component {
 
   componentDidMount() {
     let id = this.props.match.params.employeeId;
-    this.props.onOpen(id);
+    // debugger;
+    // this.props.onOpen(id);
   }
 
   render() {
+    let employee = this.props.openedEmployee;
   return (
     <div className="detailed-info">
-      {this.props.openedEmployee && <div>
+      {employee && <div>
         <CloseButton {...this.props}/>
           <Switch>
-            <Route path='/info/:employeeId/view' render={(routeProps) => (<ViewEmployeeInfo {...this.props} {...routeProps}/>)}/>
-            <Route path='/info/:employeeId/edit' render={(routeProps) => (<EditEmployeeInfo {...this.props} {...routeProps}/>)}/>
+            <Route path='/info/:employeeId/view' render={(routeProps) => (<ViewEmployeeInfo employee={employee} {...routeProps}/>)}/>
+            <Route path='/info/:employeeId/edit' render={(routeProps) => (<EditEmployeeInfo employee={employee} {...routeProps}/>)}/>
           </Switch>
       </div>
       }

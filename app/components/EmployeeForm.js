@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 
 import {EmployeeStore} from '../data/EmployeeStore.js';
-import EventTypes from '../data/EventTypes.js';
 import Employee from '../data/Employee.js';
 
 import AppAutoComplete from './AppAutoComplete.js'
@@ -47,7 +46,7 @@ export default class EmployeeForm extends Component {
 
   onFirstNameChanged(value) {
     let employee = this.state.employee;
-    employee.skills.;
+    
     this.setState({employee: employee});
   }
 

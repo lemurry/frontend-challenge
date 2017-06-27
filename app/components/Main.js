@@ -2,8 +2,6 @@ import React, {Component} from 'react';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 
 import injectTapEventPlugin from 'react-tap-event-plugin';
-// import getMuiTheme from 'material-ui/styles/getMuiTheme';
-// import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 import {EmployeeList} from './EmployeeList.js'
@@ -12,25 +10,46 @@ import AddEmployee from './AddEmployee.js'
 
 injectTapEventPlugin();
 
-export default function Main (props) {
+export default class Main extends Component {
 
-    return (
-      <MuiThemeProvider>
-        <div className="page">
-          <div className="header">
-            List
-          </div>
-
-          <div className="content">
-            <EmployeeList {...props}/>
-
-            <div className="detailed-info-area">
-              <Route exact path='/add' render={(routeProps) => (<AddEmployee {...props} {...routeProps}/>)}/>
-              <Route path='/info/:employeeId' render={(routeProps) => (<DetailedInfo {...props} {...routeProps}/>)}/>
-            </div>
-          </div>
-
-        </div>
-      </MuiThemeProvider>
-    )
+  constructor(props) {
+    super(props);
   }
+
+  componentWillMount() {
+    this.props.onGetWholeState();
+  }
+
+  render() {
+    let store = this.props.store;
+    // debugger;
+    // let {employeeList: employeeList, openedEmployee: openedEmployee, skills: skills} = EmployeeStore.getState().toJS();
+    if (Object.getOwnPropertyNames(store).length > 0) {
+      // let employeeList = state.employees;
+      // let openedEmployee = state.openedEmployee;
+      // let skillsList = state.skillsList;
+      return (
+        <MuiThemeProvider>
+          <div className="page">
+            <div className="header">
+              List
+            </div>
+
+            <div className="content">
+              <EmployeeList {...this.props}/>
+
+              <div className="detailed-info-area">
+                <Route exact path='/add' render={(routeProps) => (<AddEmployee {...this.props} {...routeProps}/>)}/>
+                <Route path='/info/:employeeId' render={(routeProps) => (<DetailedInfo {...this.props} {...routeProps}/>)}/>
+              </div>
+            </div>
+
+          </div>
+        </MuiThemeProvider>
+      )
+    }
+    else {
+      return <div/>
+    }
+  }
+}

@@ -6,7 +6,7 @@ import {EmployeeStore} from '../data/EmployeeStore.js';
 export function ViewEmployeeInfo(props) {
 let t = props;
 // debugger;
-  const employee = props.openedEmployee;
+  const employee = props.employee;
   // debugger;
   const skills = employee.skills.map(skill => <div className="view-info__skill" key={skill.id}>
     {skill.name}
