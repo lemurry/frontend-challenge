@@ -63,10 +63,6 @@
     }
   }
 
-  &__datepicker {
-    background-color: $orange-color;
-  }
-
   &__skill-list {
     @include input;
     padding: 0 3px;
@@ -94,20 +90,59 @@
   }
 
   &__select {
-  background-color: $orange-color !important;
+    background-color: $orange-color !important;
     border-radius: 6px;
-    box-shadow: 0px 2px 1px 1px #a78453;
+    box-shadow: 0 2px 1px 1px #a78453;
     color: white !important;
     font-size: 23px !important;
+    margin-right: 30px !important;
+    height: auto !important;
 
-    margin-right: 30px;
+    div {
+      margin-top: 0 !important;
+      font-size: 23px !important;
+    }
   }
 
   &__datepicker {
     background-color: $orange-color !important;
     border-radius: 6px;
-    box-shadow: 0px 2px 1px 1px #a78453;
+    box-shadow: 0 2px 1px 1px #a78453;
     color: white !important;
     font-size: 23px !important;
+    //lifehacks will need to be change if something is changed
+    div > div {
+      color: white !important;
+      font-size: 23px !important;
+    }
+
+    input {
+      color: white !important;
+      -webkit-text-fill-color: white !important;
+      font-size: 23px !important;
+    }
   }
+
+  &__auto-complete {
+    padding: 0 17px;
+
+    div {
+      color: $light-text-color !important;
+      font-size: 23px !important;
+    }
+
+    input {
+      color: $dark-text-color !important;
+      -webkit-text-fill-color: $dark-text-color !important;
+      font-size: 23px !important;
+    }
+  }
+}
+
+div[role=menu] {
+  padding: 8px 0 !important;
+}
+
+span[role=menuitem] {
+  padding: 16px 0 !important;
 }

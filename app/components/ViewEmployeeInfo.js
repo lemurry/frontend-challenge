@@ -4,10 +4,18 @@ import {Link} from 'react-router-dom';
 import {EmployeeStore} from '../data/EmployeeStore.js';
 
 export function ViewEmployeeInfo(props) {
-  const employee = props.openedEmployee;
+
+let t = props;
+// debugger;
+  const employee = props.employee;
+  // debugger;
   const skills = employee.skills.map(skill => <div className="view-info__skill" key={skill.id}>
-    {skill.id}
+    {skill.name}
   </div>);
+
+  // const onEdit = () => {
+  //   props.history.push('edit');
+  // }
 
 
   return (
@@ -24,7 +32,7 @@ export function ViewEmployeeInfo(props) {
             {employee.lastName}
           </div>
           <div className="view-info__bio">
-            ({employee.gender}, {employee.dateOfBirth})
+            ({employee.gender}, {employee.dateOfBirth.toString()})
           </div>
         </div>
 
@@ -33,7 +41,7 @@ export function ViewEmployeeInfo(props) {
         </div>
 
         <div className="view-info__skills-list">
-          {skills}
+          skills
         </div>
 
         <div className="view-info__description">

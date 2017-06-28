@@ -7,7 +7,7 @@ const Employee = Immutable.Record({
   status: '',
   skills: [],
   gender: 1,
-  dateOfBirth: '',
+  dateOfBirth: new Date(),
   description: '',
   profileFilledPercentage: 0
 });

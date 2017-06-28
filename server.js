@@ -1,7 +1,7 @@
 const path = require('path');
 const express = require('express');
 
-debugger;
+// debugger;
 const app = express();
 const indexPath = path.join(__dirname, '/index.html');
 const publicPath = express.static(path.join(__dirname, '/dist'));

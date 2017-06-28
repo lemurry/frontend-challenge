@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import AppDispatcher from '../data/AppDispatcher.js';
 import ActionTypes from '../data/ActionTypes.js';
-import EventTypes from '../data/EventTypes.js';
 import {BrowserRouter as Router, Route, Link} from 'react-router-dom'
 
 export function EmployeeListItem(props) {
@@ -56,7 +55,7 @@ export function EmployeeListItem(props) {
           {employee.status}
         </div>
         <div className="list-item__skills-list">
-          {skills}
+          skills
         </div>
       </div>
     </div>
