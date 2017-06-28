@@ -30,7 +30,8 @@
     border-radius: 100%;
     margin-right: 22px;
     flex-shrink: 0;
-    overflow: hidden;
+    background: url('https://unsplash.it/#{$size}') center center no-repeat;
+    background-size: contain;
   }
 
   &__info-container {}

@@ -23,6 +23,7 @@ class EmployeeStore extends ReduceStore {
     switch (action.type) {
 
       case ActionTypes.GET_WHOLE_STATE:
+      // debugger;
         let newState = Immutable.fromJS(action.res.data).toOrderedMap();
         return newState;
 
