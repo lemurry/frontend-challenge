@@ -44,27 +44,27 @@ export default class EmployeeForm extends Component {
 
   onDeleteSkill(key) {}
 
-  onFirstNameChanged(value) {
+  onFirstNameChanged(event) {
     let employee = this.state.employee;
-
+    employee.firstName = event.target.value;
     this.setState({employee: employee});
   }
 
-  onLastNameChanged(value) {
+  onLastNameChanged(event) {
     let employee = this.state.employee;
-    employee.lastName = value;
+    employee.lastName = event.target.value;
     this.setState({employee: employee});
   }
 
-  onStatusChanged(value) {
+  onStatusChanged(event) {
     let employee = this.state.employee;
-    employee.status = value;
+    employee.status = event.target.value;
     this.setState({employee: employee});
   }
 
-  onDescriptionChanged(value) {
+  onDescriptionChanged(event) {
     let employee = this.state.employee;
-    employee.description = value;
+    employee.description = event.target.value;
     this.setState({employee: employee});
   }
 
