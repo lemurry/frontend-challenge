@@ -1,7 +1,5 @@
 import React from 'react';
-import {
-  Container
-} from 'flux/utils';
+import {Container} from 'flux/utils';
 import Immutable from 'immutable';
 
 import EmployeeStore from '../data/EmployeeStore.js';
@@ -15,22 +13,18 @@ function getStores() {
 
 function getState() {
   let store = EmployeeStore.getState().toJS();
-  // debugger;
 
   let openedEmployee;
   if (Object.getOwnPropertyNames(store).length > 0 && store.openedEmployeeId != null) {
-    // debugger;
     let openedEmployeeId = store.openedEmployeeId;
     openedEmployee = store.employeeList.find(e => e.id == openedEmployeeId);
-  }
-  else {
+  } else {
     openedEmployee = null;
   }
 
   return {
     store: store,
     openedEmployee: openedEmployee,
-
 
     onAdd: ActionCreator.addEmployee,
     onGetWholeState: ActionCreator.getWholeState,

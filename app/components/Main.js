@@ -17,17 +17,14 @@ export default class Main extends Component {
   }
 
   componentWillMount() {
+    // debugger;
     this.props.onGetWholeState();
   }
 
   render() {
     let store = this.props.store;
-    // debugger;
-    // let {employeeList: employeeList, openedEmployee: openedEmployee, skills: skills} = EmployeeStore.getState().toJS();
+
     if (Object.getOwnPropertyNames(store).length > 0) {
-      // let employeeList = state.employees;
-      // let openedEmployee = state.openedEmployee;
-      // let skillsList = state.skillsList;
       return (
         <MuiThemeProvider>
           <div className="page">
@@ -47,8 +44,7 @@ export default class Main extends Component {
           </div>
         </MuiThemeProvider>
       )
-    }
-    else {
+    } else {
       return <div/>
     }
   }

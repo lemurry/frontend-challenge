@@ -4,18 +4,9 @@
       "firstName": "F.Name 0",
       "lastName": "L.Name 0",
       "status": "some text",
-      "skills": [{
-          "id": 0
-        },
-        {
-          "id": 1
-        },
-        {
-          "id": 2
-        }
-      ],
+      "skills": [0, 1, 2],
       "gender": 1,
-      "dateOfBirth": "",
+      "dateOfBirth": "2017-06-27T16:20:07.462Z",
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
       "profileFilledPercentage": 100
     },
@@ -24,18 +15,9 @@
       "firstName": "F.Name 1",
       "lastName": "L.Name 1",
       "status": "some text",
-      "skills": [{
-          "id": 1
-        },
-        {
-          "id": 2
-        },
-        {
-          "id": 4
-        }
-      ],
+      "skills": [1, 2, 4],
       "gender": 1,
-      "dateOfBirth": "",
+      "dateOfBirth": "2017-06-27T16:20:07.462Z",
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
       "profileFilledPercentage": 20
     },
@@ -44,11 +26,9 @@
       "firstName": "F.Name 2",
       "lastName": "L.Name 2",
       "status": "some text",
-      "skills": [{
-        "id": 3
-      }],
+      "skills": [3],
       "gender": 1,
-      "dateOfBirth": "",
+      "dateOfBirth": "2017-06-27T16:20:07.462Z",
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
       "profileFilledPercentage": 70
     }
@@ -85,6 +65,15 @@
     {
       "id": 7,
       "name": "css3"
+    }
+  ],
+  "gender": [{
+      "id": 0,
+      "name": "male"
+    },
+    {
+      "id": 1,
+      "name": "female"
     }
   ]
 }

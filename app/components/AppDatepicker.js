@@ -12,10 +12,10 @@ export default function AppDatePicker (props) {
       color: '#fff'
     }
   }
-
+// debugger;
   const date = props.date;
 
-  const handleChange = (event, index, value) => props.onChange(value);
+  const handleChange = (event, date) => props.onChange(date);
 
   const datePickerTheme = {
     palette: {
@@ -28,7 +28,7 @@ export default function AppDatePicker (props) {
   };
   return (
     <MuiThemeProvider muiTheme={getMuiTheme(datePickerTheme)}>
-      <DatePicker value={props.date} onChange={handleChange} className="employee-form__datepicker" autoOk={true} textFieldStyle={styles.datePickerStyle} hintText="Birthday" underlineShow={false} container="inline"/>
+      <DatePicker value={new Date(props.date)} onChange={handleChange} className="employee-form__datepicker" autoOk={true} textFieldStyle={styles.datePickerStyle} hintText="Birthday" underlineShow={false} container="inline"/>
     </MuiThemeProvider>
   )
 }

@@ -5,8 +5,8 @@ import {EmployeeStore} from '../data/EmployeeStore.js';
 import Employee from '../data/Employee.js';
 
 import AppAutoComplete from './AppAutoComplete.js'
-import AppDatePicker from './DatePicker.js'
-import Select from './Select.js'
+import AppDatePicker from './AppDatePicker.js'
+import AppSelect from './AppSelect.js'
 
 export default class EmployeeForm extends Component {
   constructor(props) {
@@ -34,7 +34,7 @@ export default class EmployeeForm extends Component {
 
   onDateChanged(date) {
     let employee = this.state.employee;
-    employee.dateOfBirth = new Date(value);
+    employee.dateOfBirth = new Date(date);
     this.setState({employee: employee});}
 
   onAddSkill(key) {
@@ -46,7 +46,7 @@ export default class EmployeeForm extends Component {
 
   onFirstNameChanged(value) {
     let employee = this.state.employee;
-    
+
     this.setState({employee: employee});
   }
 
@@ -70,6 +70,7 @@ export default class EmployeeForm extends Component {
 
   render() {
     const employee = this.state.employee;
+    const skillList = this.props.skillList;
 
     return (
       <div className="detailed-info-container">
@@ -87,11 +88,11 @@ export default class EmployeeForm extends Component {
           </div>
           <input className="employee-form__input" type="text" placeholder="Some text" value={employee.status} onChange={this.onStatusChanged}/>
 
-          <AppAutoComplete skills={employee.skills} onAddSkill={this.onAddSkill} onDeleteSkill={this.onDeleteSkill}/>
+          <AppAutoComplete skillList={skillList} skills={employee.skills} onAddSkill={this.onAddSkill} onDeleteSkill={this.onDeleteSkill}/>
 
           <div className="employee-form__row">
 
-            <Select value={this.state.employee.gender} onChange={this.onSelectChanged}/>
+            <AppSelect value={this.state.employee.gender} onChange={this.onSelectChanged}/>
 
             <AppDatePicker date={this.state.employee.dateOfBirth} onChange={this.onDateChanged}/>
 

@@ -19,18 +19,20 @@ export class DetailedInfo extends Component {
   }
 
   render() {
-    let employee = this.props.openedEmployee;
-  return (
-    <div className="detailed-info">
-      {employee && <div>
-        <CloseButton {...this.props}/>
+    const employee = this.props.openedEmployee;
+    const skillList = this.props.store.skills;
+
+    return (
+      <div className="detailed-info">
+        {employee && <div>
+          <CloseButton {...this.props}/>
           <Switch>
-            <Route path='/info/:employeeId/view' render={(routeProps) => (<ViewEmployeeInfo employee={employee} {...routeProps}/>)}/>
-            <Route path='/info/:employeeId/edit' render={(routeProps) => (<EditEmployeeInfo employee={employee} {...routeProps}/>)}/>
+            <Route path='/info/:employeeId/view' render={(routeProps) => (<ViewEmployeeInfo employee={employee} skillList={skillList} {...routeProps}/>)}/>
+            <Route path='/info/:employeeId/edit' render={(routeProps) => (<EditEmployeeInfo employee={employee} skillList={skillList} {...routeProps}/>)}/>
           </Switch>
+        </div>
+        }
       </div>
-      }
-    </div>
-  )
-}
+    )
+  }
 }

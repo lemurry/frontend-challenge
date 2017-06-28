@@ -6,7 +6,7 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import SelectField from 'material-ui/SelectField';
 import MenuItem from 'material-ui/MenuItem';
 
-export default function Select (props) {
+export default function AppSelect (props) {
   const styles = {
     selectStyle: {
       fontSize: '23px',

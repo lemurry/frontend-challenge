@@ -55,7 +55,7 @@ export function EmployeeListItem(props) {
           {employee.status}
         </div>
         <div className="list-item__skills-list">
-          {skills}
+          skills
         </div>
       </div>
     </div>
