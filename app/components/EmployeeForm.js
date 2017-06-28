@@ -106,6 +106,12 @@ export default class EmployeeForm extends Component {
           </div>
 
           <textarea className="employee-form__textarea" rows="7" cols="45" name="text" placeholder="Add some description"  value={employee.description}  onChange={this.onDescriptionChanged}/>
+
+          <div className="buttons-row">
+            <div className="buttons-row__button buttons-row__button--green"> Save </div>
+            <div className="buttons-row__button buttons-row__button--red"> Cancel </div>
+          </div>
+
         </div>
       </div>
     )

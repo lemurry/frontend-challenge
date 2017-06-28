@@ -90,9 +90,7 @@
   }
 
   &__select {
-    background-color: $orange-color !important;
-    border-radius: 6px;
-    box-shadow: 0 2px 1px 1px #a78453;
+    @include round-shadowed-button($orange-color);
     color: white !important;
     font-size: 23px !important;
     margin-right: 30px !important;
@@ -101,13 +99,12 @@
     div {
       margin-top: 0 !important;
       font-size: 23px !important;
+      color: white !important;
     }
   }
 
   &__datepicker {
-    background-color: $orange-color !important;
-    border-radius: 6px;
-    box-shadow: 0 2px 1px 1px #a78453;
+    @include round-shadowed-button($orange-color);
     color: white !important;
     font-size: 23px !important;
     //lifehacks will need to be change if something is changed
@@ -120,6 +117,10 @@
       color: white !important;
       -webkit-text-fill-color: white !important;
       font-size: 23px !important;
+    }
+
+    * {
+      cursor: pointer !important;
     }
   }
 
@@ -137,6 +138,7 @@
       font-size: 23px !important;
     }
   }
+
 }
 
 div[role=menu] {

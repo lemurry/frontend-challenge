@@ -49,3 +49,27 @@
     padding-bottom: 100%;
   }
 }
+
+.buttons-row{
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  margin-top: 20px;
+
+  &__button{
+    width: 25%;
+    padding: 23px;
+    font-size: 23px;
+    color: white;
+    text-align: center;
+
+    &--green{
+        @include round-shadowed-button($green-color);
+        margin-right: 30px;
+        margin-left: auto;
+    }
+    &--red {
+        @include round-shadowed-button($red-color);
+    }
+  }
+}

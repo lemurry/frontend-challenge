@@ -46,3 +46,11 @@
   flex-direction: row;
   flex-wrap: wrap;
 }
+
+
+  @mixin round-shadowed-button($color){
+    background-color: $color !important;
+    border-radius: 6px;
+    box-shadow: 0 2px 1px 1px darken(desaturate($color, 40%), 10%);
+    cursor: pointer;
+  }

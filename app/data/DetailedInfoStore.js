@@ -18,7 +18,7 @@ class DetailedInfoStore extends ReduceStore {
     switch (action.type) {
 
       case ActionTypes.OPEN_EMPLOYEE:
-        debugger;
+        // debugger;
         return state.set('openedEmployeeId', action.id);
         // let employeeId = action.id;
         // if (typeof employeeId != 'undefined') {

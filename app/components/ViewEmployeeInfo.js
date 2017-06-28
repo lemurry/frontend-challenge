@@ -40,8 +40,13 @@ export function ViewEmployeeInfo(props) {
         <div className="view-info__description">
           {employee.description}
         </div>
+
+        <div className="buttons-row">
+          <Link to={`/info/${employee.id}/edit`} className="buttons-row__button buttons-row__button--green">Edit</Link>
+          <div className="buttons-row__button buttons-row__button--red"> Delete  </div>
+        </div>
       </div>
-      <Link to={`/info/${employee.id}/edit`}>Edit</Link>
+
     </div>
   )
 }

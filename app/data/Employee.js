@@ -1,18 +1,18 @@
 import Immutable from 'immutable';
 
-const Employee = Immutable.Record({
-  id: '',
-  firstName: '',
-  lastName: '',
-  status: '',
-  skills: [],
-  gender: 1,
-  dateOfBirth: new Date(),
-  description: '',
-  profileFilledPercentage: 0
-});
-
-export default Employee;
+export default class Employee {
+  constructor(){
+    this.id = '',
+    this.firstName = '',
+    this.lastName = '',
+    this.status = '',
+    this.skills = [],
+    this.gender = {},
+    this.dateOfBirth = new Date(),
+    this.description = '',
+    this.profileFilledPercentage = 0
+  }
+};
 
 
 // class Employee1 {

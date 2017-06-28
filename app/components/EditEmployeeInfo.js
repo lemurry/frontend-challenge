@@ -6,7 +6,9 @@ import EmployeeForm from './EmployeeForm.js'
 
 export default function AddEmployee (props) {
     const employee = props.employee;
+    const skillList = props.store.skills;
+    const gender = props.store.gender;
     return (
-      <EmployeeForm employee={employee} skillList={props.skillList} genders={props.gender} />
+      <EmployeeForm employee={employee} skillList={skillList} genders={gender} />
     )
 }
