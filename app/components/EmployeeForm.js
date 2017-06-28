@@ -27,9 +27,11 @@ export default class EmployeeForm extends Component {
   }
 
   onSelectChanged(value) {
-    let employee = this.state.employee;
-    employee.gender = value;
-    this.setState({employee: employee});}
+    if (value != null) {
+      let employee = this.state.employee;
+      employee.gender = this.props.genders[value];
+      this.setState({employee: employee});}
+    }
 
   onDateChanged(date) {
     let employee = this.state.employee;
@@ -97,7 +99,7 @@ export default class EmployeeForm extends Component {
 
           <div className="employee-form__row">
 
-            <AppSelect value={this.state.employee.gender} onChange={this.onSelectChanged}/>
+            <AppSelect value={this.state.employee.gender.id} onChange={this.onSelectChanged}/>
 
             <AppDatePicker date={this.state.employee.dateOfBirth} onChange={this.onDateChanged}/>
 

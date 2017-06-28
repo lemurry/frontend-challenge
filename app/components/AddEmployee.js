@@ -11,7 +11,7 @@ export default function AddEmployee (props) {
     const employee = new Employee();
     return (
       <div className="detailed-info">
-        <EmployeeForm employee={employee} skillList={props.skillList} />
+        <EmployeeForm employee={employee} skillList={props.skillList} genders={props.gender} />
       </div>
     )
 }

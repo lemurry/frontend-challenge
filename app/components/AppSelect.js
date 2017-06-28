@@ -42,9 +42,9 @@ export default function AppSelect (props) {
       <SelectField selectedMenuItemStyle={{
         backgroundColor: "#333"
       }} value={props.value} onChange={handleChange} menuItemStyle={styles.menuItemStyle} underlineShow={false} hintText="Select Gender" className="employee-form__select" floatingLabelStyle={styles.selectStyle} listStyle={styles.selectListStyle}>
-        <MenuItem value={0} primaryText="Select Gender"/>
-        <MenuItem value={1} primaryText="Male"/>
-        <MenuItem value={2} primaryText="Female"/>
+        <MenuItem value={null} primaryText="Select Gender"/>
+        <MenuItem value={0} primaryText="Male"/>
+        <MenuItem value={1} primaryText="Female"/>
       </SelectField>
     </MuiThemeProvider>
   )
