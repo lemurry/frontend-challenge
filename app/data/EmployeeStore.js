@@ -24,6 +24,13 @@ class EmployeeStore extends ReduceStore {
 
       case ActionTypes.GET_WHOLE_STATE:
       // debugger;
+        // let data = action.res.data;
+        // data.employeeList.foreach(employee => {
+        //   employee.skills.map(skill => {
+        //
+        //   })
+        // });
+
         let newState = Immutable.fromJS(action.res.data).toOrderedMap();
         return newState;
 

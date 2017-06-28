@@ -4,6 +4,7 @@ import {Link} from 'react-router-dom';
 import {EmployeeStore} from '../data/EmployeeStore.js';
 
 export function ViewEmployeeInfo(props) {
+
 let t = props;
 // debugger;
   const employee = props.employee;
@@ -15,6 +16,7 @@ let t = props;
   // const onEdit = () => {
   //   props.history.push('edit');
   // }
+
 
   return (
     <div className="detailed-info-container">
@@ -39,7 +41,7 @@ let t = props;
         </div>
 
         <div className="view-info__skills-list">
-          {skills}
+          skills
         </div>
 
         <div className="view-info__description">
@@ -50,5 +52,3 @@ let t = props;
     </div>
   )
 }
-
-// <div onClick={onEdit}> Edit </div>

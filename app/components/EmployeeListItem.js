@@ -6,7 +6,7 @@ import {BrowserRouter as Router, Route, Link} from 'react-router-dom'
 export function EmployeeListItem(props) {
   const employee = props.employee;
   const skills = employee.skills.map(skill => <div className="list-item__skill" key={skill.id}>
-    {skill.name}
+    {skill.id}
   </div>);
   // const className = props.opened
   //   ? "list-item opened"

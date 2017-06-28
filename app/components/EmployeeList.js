@@ -11,11 +11,11 @@ export function EmployeeList(props) {
     return <EmployeeListItem employee={employee} key={employee.id} {...props}/>
   });
 
-  const addEmployee = () => {
-    props.onClose();
-    props.history.push(`/add`);
-    // props.onAdd();
-  }
+
+const addEmployee = () => {
+  props.history.push(`/add`);
+  // props.onAdd();
+}
 
   return (
     <div className="list">
