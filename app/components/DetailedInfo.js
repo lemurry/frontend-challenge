@@ -15,7 +15,7 @@ export class DetailedInfo extends Component {
   componentDidMount() {
     let id = this.props.match.params.employeeId;
     // debugger;
-    // this.props.onOpen(id);
+    this.props.onOpen(id);
   }
 
   render() {

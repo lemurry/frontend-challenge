@@ -60,19 +60,19 @@ class EmployeeStore extends ReduceStore {
           return list.delete(index)
         });
 
-      case ActionTypes.OPEN_EMPLOYEE:
-        // debugger;
-        let employeeId = action.id;
-        if (typeof employeeId != 'undefined') {
-          let index = state.get('employeeList').findIndex(e => e.get('id') == action.id);
-          if (index != -1) {
-            return state.set('openedEmployeeId', action.id);
-          }
-        }
-        return state;
-
-      case ActionTypes.CLOSE_EMPLOYEE:
-        return state.set('openedEmployeeId', null);
+      // case ActionTypes.OPEN_EMPLOYEE:
+      //   // debugger;
+      //   let employeeId = action.id;
+      //   if (typeof employeeId != 'undefined') {
+      //     let index = state.get('employeeList').findIndex(e => e.get('id') == action.id);
+      //     if (index != -1) {
+      //       return state.set('openedEmployeeId', action.id);
+      //     }
+      //   }
+      //   return state;
+      //
+      // case ActionTypes.CLOSE_EMPLOYEE:
+      //   return state.set('openedEmployeeId', null);
 
       default:
         return state;

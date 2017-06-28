@@ -18,15 +18,16 @@ class DetailedInfoStore extends ReduceStore {
     switch (action.type) {
 
       case ActionTypes.OPEN_EMPLOYEE:
-        // debugger;
-        let employeeId = action.id;
-        if (typeof employeeId != 'undefined') {
-          let index = state.get('employeeList').findIndex(e => e.get('id') == action.id);
-          if (index != -1) {
-            return state.set('openedEmployeeId', action.id);
-          }
-        }
-        return state;
+        debugger;
+        return state.set('openedEmployeeId', action.id);
+        // let employeeId = action.id;
+        // if (typeof employeeId != 'undefined') {
+        //   let index = state.get('employeeList').findIndex(e => e.get('id') == action.id);
+        //   if (index != -1) {
+        //     return state.set('openedEmployeeId', action.id);
+        //   }
+        // }
+        // return state;
 
       case ActionTypes.CLOSE_EMPLOYEE:
         return state.set('openedEmployeeId', null);
