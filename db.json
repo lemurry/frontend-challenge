@@ -1,8 +1,8 @@
 {
   "employeeList": [{
       "id": 0,
-      "firstName": "F.Name 0",
-      "lastName": "L.Name 0",
+      "firstName": "First",
+      "lastName": "Last",
       "status": "some text",
       "skills": [0, 1, 2],
       "gender": 1,
@@ -12,8 +12,8 @@
     },
     {
       "id": 1,
-      "firstName": "F.Name 1",
-      "lastName": "L.Name 1",
+      "firstName": "First",
+      "lastName": "Last",
       "status": "some text",
       "skills": [1, 2, 4],
       "gender": 1,
@@ -23,8 +23,8 @@
     },
     {
       "id": 2,
-      "firstName": "F.Name 2",
-      "lastName": "L.Name 2",
+      "firstName": "First",
+      "lastName": "Last",
       "status": "some text",
       "skills": [3],
       "gender": 1,
@@ -69,11 +69,11 @@
   ],
   "gender": [{
       "id": 0,
-      "name": "male"
+      "name": "Male"
     },
     {
       "id": 1,
-      "name": "female"
+      "name": "Female"
     }
   ]
 }

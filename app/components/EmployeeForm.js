@@ -24,7 +24,6 @@ export default class EmployeeForm extends Component {
     this.onLastNameChanged = this.onLastNameChanged.bind(this);
     this.onStatusChanged = this.onStatusChanged.bind(this);
     this.onDescriptionChanged = this.onDescriptionChanged.bind(this);
-
   }
 
   onSelectChanged(value) {
@@ -37,12 +36,18 @@ export default class EmployeeForm extends Component {
     employee.dateOfBirth = new Date(date);
     this.setState({employee: employee});}
 
-  onAddSkill(key) {
+  onAddSkill(text) {
     let employee = this.state.employee;
-    employee.skills.push(key);
+    let skill = this.props.skillList.find(s => s.name == text);
+    employee.skills.push(skill);
     this.setState({employee: employee});}
 
-  onDeleteSkill(key) {}
+  onDeleteSkill(skill) {
+    let employee = this.state.employee;
+    let index = employee.skills.indexOf(skill);
+    employee.skills.splice(index, 1);
+    this.setState({employee: employee})
+  }
 
   onFirstNameChanged(event) {
     let employee = this.state.employee;

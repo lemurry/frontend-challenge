@@ -1,7 +1,5 @@
 import AppDispatcher from './AppDispatcher.js';
-import {
-  ReduceStore
-} from 'flux/utils';
+import {ReduceStore} from 'flux/utils';
 import Immutable from 'immutable';
 
 import Counter from './Counter.js';
@@ -23,15 +21,18 @@ class EmployeeStore extends ReduceStore {
     switch (action.type) {
 
       case ActionTypes.GET_WHOLE_STATE:
-        // let data = action.res.data;
-        // data.employeeList.foreach(employee => {
-        //   employee.skills.map(skill => {
-        //     skill.foreach(skill => {
-        //
-        //     })
-        //   })
-        // });
-        // debugger;
+        let employeeList = action.res.data.employeeList;
+        let allSkills = action.res.data.skills;
+        let genders = action.res.data.gender;
+        employeeList = employeeList.map(employee => {
+          let filledSkills = employee.skills.map(skill => {
+            return allSkills[skill]
+          });
+          employee.gender = genders[employee.gender];
+          employee.skills = filledSkills;
+          employee.dateOfBirth = new Date(employee.dateOfBirth);
+          return employee
+        });
 
         let newState = Immutable.fromJS(action.res.data).toOrderedMap();
         return newState;
@@ -60,7 +61,7 @@ class EmployeeStore extends ReduceStore {
         });
 
       case ActionTypes.OPEN_EMPLOYEE:
-      // debugger;
+        // debugger;
         let employeeId = action.id;
         if (typeof employeeId != 'undefined') {
           let index = state.get('employeeList').findIndex(e => e.get('id') == action.id);
@@ -79,73 +80,3 @@ class EmployeeStore extends ReduceStore {
   }
 }
 export default new EmployeeStore();
-//
-// {
-//   employeeList: [new Employee({
-//       id: 0,
-//       firstName: "F.Name 0",
-//       lastName: "L.Name 0",
-//       status: "some text",
-//       skills: [
-//         {
-//           id: 0,
-//           name: 'react.js'
-//         },
-//         {
-//           id: 1,
-//           name: 'angular.js'
-//         },
-//         {
-//           id: 2,
-//           name: 'scss'
-//         }
-//       ],
-//       gender: 1,
-//       dateOfBirth: new Date(),
-//       description: "",
-//       profileFilledPercentage: 100
-//     }),
-//     new Employee({
-//       id: 1,
-//       firstName: "F.Name 1",
-//       lastName: "L.Name 1",
-//       status: "some text",
-//       skills: [
-//         {
-//           id: 1,
-//           name: 'angular.js'
-//         },
-//         {
-//           id: 2,
-//           name: 'scss'
-//         },
-//           {
-//             id: 4,
-//             name: 'html5'
-//           }
-//       ],
-//       gender: 2,
-//       dateOfBirth: new Date(),
-//       description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-//       profileFilledPercentage: 20
-//     }),
-//     new Employee({
-//       id: 2,
-//       firstName: "F.Name 2",
-//       lastName: "L.Name 2",
-//       status: "some text",
-//       skills: [
-//         {
-//           id: 3,
-//           name: 'node.js'
-//         }
-//       ],
-//       gender: 1,
-//       dateOfBirth: new Date(),
-//       description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-//       profileFilledPercentage: 70
-//     })
-//   ],
-//   openedEmployeeId: null,
-//   skillsList: null,
-// }

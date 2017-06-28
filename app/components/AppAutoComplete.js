@@ -17,13 +17,13 @@ export default class AppAutoComplete extends Component {
     this.updateInput = this.updateInput.bind(this);
   }
 
-  addSkill(key) {
+  addSkill(string, index) {
     this.setState({searchText: ''});
-    this.props.onAddSkill(key)
+    this.props.onAddSkill(string)
   };
 
-  deleteSkill(key) {
-    this.props.onDeleteSkill(key);
+  deleteSkill(skill) {
+    this.props.onDeleteSkill(skill);
   };
 
   updateInput(searchText) {
@@ -40,14 +40,17 @@ export default class AppAutoComplete extends Component {
       }
     }
 
-    const skillList = this.props.skillList.filter(s => !this.props.skills.includes(s.id)).map(s => s.name);
-    const skills = this.props.skills.map(skill => <Chip onRequestDelete={this.deleteSkill} className="employee-form__skill" labelStyle={styles.skillStyle} key={skill.id}>
+    const skillList = this.props.skillList.filter(s => !this.props.skills.map(s => s.id).includes(s.id)).map(s => s.name);
+    // debugger;
+    const skills = this.props.skills.map(skill => <Chip onRequestDelete={() => this.deleteSkill(skill)} className="employee-form__skill" labelStyle={styles.skillStyle} key={skill.id}>
       {skill.name}
     </Chip>);
+    const autoCompleteEnabled = skills.length < 5;
+
     return (
       <div className="employee-form__skill-list">
         {skills}
-        <AutoComplete className="employee-form__auto-complete" onNewRequest={this.addSkill} onUpdateInput={this.updateInput} searchText={this.state.searchText} openOnFocus={true} hintText="start typing..." dataSource={skillList} underlineShow={false}/>
+        <AutoComplete style={{display: autoCompleteEnabled ? 'block' : 'none' }} className="employee-form__auto-complete" onNewRequest={this.addSkill} onUpdateInput={this.updateInput} searchText={this.state.searchText} openOnFocus={true} hintText="start typing..." dataSource={skillList} openOnFocus={true} underlineShow={false}/>
       </div>
     )
   }
