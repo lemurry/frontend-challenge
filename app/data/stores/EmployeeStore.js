@@ -22,7 +22,9 @@ class EmployeeStore extends ReduceStore {
         let employeeList = action.res.data.employeeList;
         let allSkills = action.res.data.skills;
         let genders = action.res.data.gender;
+        // debugger;
         employeeList = employeeList.map(employee => {
+          // debugger;
           let filledSkills = employee.skills.map(skill => {
             return allSkills[skill]
           });
@@ -35,10 +37,11 @@ class EmployeeStore extends ReduceStore {
         let newState = Immutable.fromJS(action.res.data).toOrderedMap();
         return newState;
 
-      case ActionTypes.GET_ALL_EMPLOYEES:
-        return state.get('employeeList');
+      case ActionTypes.START_ADDING_EMPLOYEE:
+        return state.set('newEmployeeId', action.id)
 
       case ActionTypes.ADD_EMPLOYEE:
+      break;
         // let id = Counter.increment();
         // return state.update('employeeList', list => list.push(Immutable.fromJS(new Employee({
         //   id: id,

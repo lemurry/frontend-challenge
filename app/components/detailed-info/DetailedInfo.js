@@ -28,8 +28,8 @@ export class DetailedInfo extends Component {
         {employee && <div>
           <CloseButton {...this.props}/>
           <Switch>
-            <Route path='/info/:employeeId/view' render={(routeProps) => (<ViewEmployeeInfo employee={employee} {...routeProps}/>)}/>
-            <Route path='/info/:employeeId/edit' render={(routeProps) => (<EditEmployeeInfo {...this.props} employee={employee} {...routeProps}/>)}/>
+            <Route path='/info/:employeeId/view' render={(routeProps) => (<ViewEmployeeInfo {...this.props} {...routeProps}/>)}/>
+            <Route path='/info/:employeeId/edit' render={(routeProps) => (<EditEmployeeInfo {...this.props} {...routeProps}/>)}/>
           </Switch>
         </div>
         }

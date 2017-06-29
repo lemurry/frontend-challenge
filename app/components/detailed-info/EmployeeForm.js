@@ -23,6 +23,9 @@ export default class EmployeeForm extends Component {
     this.onLastNameChanged = this.onLastNameChanged.bind(this);
     this.onStatusChanged = this.onStatusChanged.bind(this);
     this.onDescriptionChanged = this.onDescriptionChanged.bind(this);
+
+    this.onSave = this.onSave.bind(this);
+    this.onCancel = this.onCancel.bind(this);
   }
 
   onSelectChanged(value) {
@@ -74,6 +77,14 @@ export default class EmployeeForm extends Component {
     this.setState({employee: employee});
   }
 
+  onSave() {
+    this.props.onSave();
+  }
+
+  onCancel() {
+    this.props.onCancel();
+  }
+
   render() {
     const employee = this.state.employee;
     const skillList = this.props.skillList;
@@ -81,6 +92,9 @@ export default class EmployeeForm extends Component {
     return (
       <div className="detailed-info-container">
         <div className="left-column">
+        <div className="filled-profile">
+          Id: {employee.id}
+        </div>
           <div className="avatar"/>
           <div className="filled-profile">
             Filled profile: {employee.profileFilledPercentage}%
@@ -107,8 +121,8 @@ export default class EmployeeForm extends Component {
           <textarea className="employee-form__textarea" rows="7" cols="45" name="text" placeholder="Add some description"  value={employee.description}  onChange={this.onDescriptionChanged}/>
 
           <div className="buttons-row">
-            <div className="buttons-row__button buttons-row__button--green"> Save </div>
-            <div className="buttons-row__button buttons-row__button--red"> Cancel </div>
+            <div className="buttons-row__button buttons-row__button--green" onClick={this.onSave} > Save </div>
+            <div className="buttons-row__button buttons-row__button--red" onClick={this.onCancel} > Cancel </div>
           </div>
 
         </div>

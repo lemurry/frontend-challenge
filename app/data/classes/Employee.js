@@ -1,8 +1,8 @@
 import Immutable from 'immutable';
 
 export default class Employee {
-  constructor(){
-    this.id = '',
+  constructor(id){
+    this.id = id || null,
     this.firstName = '',
     this.lastName = '',
     this.status = '',

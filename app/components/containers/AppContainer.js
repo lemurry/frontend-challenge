@@ -17,9 +17,12 @@ function getState() {
   let detailedInfo = DetailedInfoStore.getState().toJS();
   let openedEmployeeId = detailedInfo.openedEmployeeId;
 
-  let openedEmployee;
+  let openedEmployee, newEmployee;
   if (Object.getOwnPropertyNames(store).length > 0){
     openedEmployee = store.employeeList.find(e => e.id == openedEmployeeId) || null;
+
+    let newEmployeeId = store.newEmployeeId;
+    newEmployee = (newEmployeeId != null) ? store.employeeList.find(e => e.id == newEmployeeId) : null;
   };
   // let openedEmployee;
   // if (Object.getOwnPropertyNames(store).length > 0 && openedEmployeeId != null) {
@@ -31,12 +34,16 @@ function getState() {
   return {
     store: store,
     openedEmployee: openedEmployee,
+    newEmployee: newEmployee,
 
     onGetWholeState: ActionCreator.getWholeState,
     onAdd: ActionCreator.addEmployee,
     onDelete: ActionCreator.deleteEmployee,
     onOpen: ActionCreator.openEmployee,
-    onClose: ActionCreator.closeEmployee
+    onClose: ActionCreator.closeEmployee,
+
+    onStartAdding: ActionCreator.startAddingEmployee,
+    onCancelAdding: ActionCreator.cancelAddingEmployee,
   };
 }
 export default Container.createFunctional(App, getStores, getState);

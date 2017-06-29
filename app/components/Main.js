@@ -25,29 +25,28 @@ export default class Main extends Component {
   render() {
     let store = this.props.store;
 
-    if (Object.getOwnPropertyNames(store).length > 0) {
-      return (
-        <MuiThemeProvider>
-          <div className="page">
-            <div className="header">
-              List
-            </div>
-
-            <div className="content">
-              <EmployeeList {...this.props}/>
-
-              <div className="detailed-info-area">
-                <Route exact path='/add' render={(routeProps) => (<AddEmployee {...this.props} {...routeProps}/>)}/>
-                <Route path='/info/:employeeId' render={(routeProps) => (<DetailedInfo {...this.props} {...routeProps}/>)}/>
-              </div>
-            </div>
-
-          </div>
-        </MuiThemeProvider>
-      )
-    } else {
-      return <div/>
+    if (Object.getOwnPropertyNames(store).length == 0) {
+      return null;
     }
+    
+    return (
+      <MuiThemeProvider>
+        <div className="page">
+          <div className="header">
+            List
+          </div>
 
+          <div className="content">
+            <EmployeeList {...this.props}/>
+
+            <div className="detailed-info-area">
+              <Route exact path='/add' render={(routeProps) => (<AddEmployee {...this.props} {...routeProps}/>)}/>
+              <Route path='/info/:employeeId' render={(routeProps) => (<DetailedInfo {...this.props} {...routeProps}/>)}/>
+            </div>
+          </div>
+
+        </div>
+      </MuiThemeProvider>
+    )
   }
 }
