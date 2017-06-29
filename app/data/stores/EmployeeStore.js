@@ -1,11 +1,9 @@
-import AppDispatcher from './AppDispatcher.js';
+import AppDispatcher from '../AppDispatcher.js';
 import {ReduceStore} from 'flux/utils';
 import Immutable from 'immutable';
 
-import Counter from './Counter.js';
-
-import ActionTypes from './ActionTypes.js';
-import Employee from './Employee.js';
+import ActionTypes from '../actions/ActionTypes.js';
+import Employee from '../classes/Employee.js';
 
 class EmployeeStore extends ReduceStore {
   constructor() {
@@ -41,18 +39,18 @@ class EmployeeStore extends ReduceStore {
         return state.get('employeeList');
 
       case ActionTypes.ADD_EMPLOYEE:
-        let id = Counter.increment();
-        return state.update('employeeList', list => list.push(Immutable.fromJS(new Employee({
-          id: id,
-          firstName: "New " + id,
-          lastName: "Item " + id,
-          status: "some text",
-          skills: [],
-          gender: 1,
-          dateOfBirth: '',
-          description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-          profileFilledPercentage: 20
-        }))));
+        // let id = Counter.increment();
+        // return state.update('employeeList', list => list.push(Immutable.fromJS(new Employee({
+        //   id: id,
+        //   firstName: "New " + id,
+        //   lastName: "Item " + id,
+        //   status: "some text",
+        //   skills: [],
+        //   gender: 1,
+        //   dateOfBirth: '',
+        //   description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        //   profileFilledPercentage: 20
+        // }))));
 
       case ActionTypes.DELETE_EMPLOYEE:
         return state.update('employeeList', (list) => {

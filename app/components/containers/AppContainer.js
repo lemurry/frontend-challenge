@@ -2,11 +2,11 @@ import React from 'react';
 import {Container} from 'flux/utils';
 import Immutable from 'immutable';
 
-import EmployeeStore from '../data/EmployeeStore.js';
-import DetailedInfoStore from '../data/DetailedInfoStore.js';
-import ActionCreator from '../data/ActionCreator.js';
+import App from '../App.js';
+import EmployeeStore from './../../data/stores/EmployeeStore.js';
+import DetailedInfoStore from './../../data/stores/DetailedInfoStore.js';
+import ActionCreator from './../../data/actions/ActionCreator.js';
 
-import App from './App.js';
 
 function getStores() {
   return [EmployeeStore, DetailedInfoStore];

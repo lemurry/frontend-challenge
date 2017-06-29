@@ -1,9 +1,7 @@
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 
-
-import {EmployeeStore} from '../data/EmployeeStore.js';
-import Employee from '../data/Employee.js';
+import Employee from '../../data/classes/Employee.js';
 
 import EmployeeForm from './EmployeeForm.js'
 

@@ -1,8 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 
-import {EmployeeStore} from '../data/EmployeeStore.js';
-
 export function ViewEmployeeInfo(props) {
   const employee = props.employee;
   const skills = employee.skills.map(skill => <div className="view-info__skill" key={skill.id}>

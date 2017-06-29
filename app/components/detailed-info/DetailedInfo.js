@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 
-import {CloseButton} from './CloseButton.js';
+import {CloseButton} from '../elements/CloseButton.js';
 import {ViewEmployeeInfo} from './ViewEmployeeInfo.js';
 import EditEmployeeInfo from './EditEmployeeInfo.js'
 
@@ -15,7 +15,9 @@ export class DetailedInfo extends Component {
   componentDidMount() {
     let id = this.props.match.params.employeeId;
     // debugger;
-    this.props.onOpen(id);
+    setTimeout(() => {
+      this.props.onOpen(id);
+    }, 0);
   }
 
   render() {

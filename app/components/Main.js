@@ -4,10 +4,10 @@ import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
-import {EmployeeList} from './EmployeeList.js'
+import {EmployeeList} from './list/EmployeeList.js'
 
-import {DetailedInfo} from './DetailedInfo.js'
-import AddEmployee from './AddEmployee.js'
+import {DetailedInfo} from './detailed-info/DetailedInfo.js'
+import AddEmployee from './detailed-info/AddEmployee.js'
 
 injectTapEventPlugin();
 

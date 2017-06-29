@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-import AppDispatcher from '../data/AppDispatcher.js';
-import ActionTypes from '../data/ActionTypes.js';
+import AppDispatcher from '../../data/AppDispatcher.js';
+import ActionTypes from '../../data/actions/ActionTypes.js';
 import {BrowserRouter as Router, Route, Link} from 'react-router-dom'
 
 export function EmployeeListItem(props) {

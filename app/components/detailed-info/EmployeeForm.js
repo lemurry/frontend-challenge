@@ -1,12 +1,11 @@
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 
-import {EmployeeStore} from '../data/EmployeeStore.js';
-import Employee from '../data/Employee.js';
+import Employee from '../../data/classes/Employee.js';
 
-import AppAutoComplete from './AppAutoComplete.js'
-import AppDatePicker from './AppDatePicker.js'
-import AppSelect from './AppSelect.js'
+import AppAutoComplete from '../elements/AppAutoComplete.js'
+import AppDatePicker from '../elements/AppDatePicker.js'
+import AppSelect from '../elements/AppSelect.js'
 
 export default class EmployeeForm extends Component {
   constructor(props) {

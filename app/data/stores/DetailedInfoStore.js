@@ -1,8 +1,8 @@
-import AppDispatcher from './AppDispatcher.js';
+import AppDispatcher from '../AppDispatcher.js';
 import {ReduceStore} from 'flux/utils';
 import Immutable from 'immutable';
 
-import ActionTypes from './ActionTypes.js';
+import ActionTypes from '../actions/ActionTypes.js';
 
 class DetailedInfoStore extends ReduceStore {
   constructor() {
