@@ -1,10 +1,16 @@
 {
-  "employeeList": [{
+  "employeeList": [
+    {
       "id": 0,
       "firstName": "First",
-      "lastName": "Last",
+      "lastName": "Last123",
       "status": "some text",
-      "skills": [0, 1, 2],
+      "skills": [
+        0,
+        1,
+        2,
+        3
+      ],
       "gender": 1,
       "dateOfBirth": "2017-06-27T16:20:07.462Z",
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
@@ -15,7 +21,11 @@
       "firstName": "First",
       "lastName": "Last",
       "status": "some text",
-      "skills": [1, 2, 4],
+      "skills": [
+        1,
+        2,
+        4
+      ],
       "gender": 1,
       "dateOfBirth": "2017-06-27T16:20:07.462Z",
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
@@ -26,7 +36,9 @@
       "firstName": "First",
       "lastName": "Last",
       "status": "some text",
-      "skills": [3],
+      "skills": [
+        3
+      ],
       "gender": 1,
       "dateOfBirth": "2017-06-27T16:20:07.462Z",
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
@@ -34,7 +46,8 @@
     }
   ],
   "newEmployee": {},
-  "skills": [{
+  "skills": [
+    {
       "id": 0,
       "name": "react.js"
     },
@@ -67,7 +80,8 @@
       "name": "css3"
     }
   ],
-  "gender": [{
+  "gender": [
+    {
       "id": 0,
       "name": "Male"
     },

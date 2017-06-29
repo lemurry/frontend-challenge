@@ -6,14 +6,19 @@ import Employee from '../../data/classes/Employee.js';
 import AppAutoComplete from '../elements/AppAutoComplete.js'
 import AppDatePicker from '../elements/AppDatePicker.js'
 import AppSelect from '../elements/AppSelect.js'
+import CancelDialog from '../elements/CancelDialog.js'
+import Dialog from 'material-ui/Dialog';
 
 export default class EmployeeForm extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      employee: this.props.employee
+      employee: this.props.employee,
+      cancelDialogOpen: false,
+      invalidDataDialogOpen: false
     };
+
 
     this.onSelectChanged = this.onSelectChanged.bind(this);
     this.onDateChanged = this.onDateChanged.bind(this);
@@ -78,11 +83,16 @@ export default class EmployeeForm extends Component {
   }
 
   onSave() {
-    this.props.onSave();
+    let employee = this.state.employee;
+    if (employee.firstName && employee.lastName && employee.gender)
+      this.props.onSave(this.state.employee);
+    else {
+      this.setState({invalidDataDialogOpen: true})
+    }
   }
 
   onCancel() {
-    this.props.onCancel();
+    this.setState({cancelDialogOpen: true})
   }
 
   render() {
@@ -126,6 +136,15 @@ export default class EmployeeForm extends Component {
           </div>
 
         </div>
+        <Dialog
+          title="Invalid data!"
+          modal={false}
+          open={this.state.invalidDataDialogOpen}
+          onRequestClose={() => this.setState({invalidDataDialogOpen: false})}>
+            Check first name, last name and gender to be filled!
+        </Dialog>
+
+        <CancelDialog isOpened={this.state.cancelDialogOpen} onYes={() => this.props.onCancel()} onNo={() => this.setState({cancelDialogOpen: false})} onClose={() => this.setState({cancelDialogOpen: false})} />
       </div>
     )
   }

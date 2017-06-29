@@ -1,5 +1,7 @@
 import AppDispatcher from '../AppDispatcher.js';
-import {ReduceStore} from 'flux/utils';
+import {
+  ReduceStore
+} from 'flux/utils';
 import Immutable from 'immutable';
 
 import ActionTypes from '../actions/ActionTypes.js';
@@ -19,41 +21,26 @@ class EmployeeStore extends ReduceStore {
     switch (action.type) {
 
       case ActionTypes.GET_WHOLE_STATE:
-        let employeeList = action.res.data.employeeList;
-        let allSkills = action.res.data.skills;
+        let newState = action.res.data;
+        let skillList = action.res.data.skills;
         let genders = action.res.data.gender;
-        // debugger;
-        employeeList = employeeList.map(employee => {
-          // debugger;
-          let filledSkills = employee.skills.map(skill => {
-            return allSkills[skill]
-          });
-          employee.gender = genders[employee.gender];
-          employee.skills = filledSkills;
-          employee.dateOfBirth = new Date(employee.dateOfBirth);
-          return employee
-        });
-
-        let newState = Immutable.fromJS(action.res.data).toOrderedMap();
-        return newState;
+        newState.employeeList = action.res.data.employeeList.map(employee => (new Employee()).fromRaw(employee, skillList, genders));
+        return Immutable.fromJS(newState).toOrderedMap();
 
       case ActionTypes.START_ADDING_EMPLOYEE:
         return state.set('newEmployeeId', action.id)
 
       case ActionTypes.ADD_EMPLOYEE:
-      break;
-        // let id = Counter.increment();
-        // return state.update('employeeList', list => list.push(Immutable.fromJS(new Employee({
-        //   id: id,
-        //   firstName: "New " + id,
-        //   lastName: "Item " + id,
-        //   status: "some text",
-        //   skills: [],
-        //   gender: 1,
-        //   dateOfBirth: '',
-        //   description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-        //   profileFilledPercentage: 20
-        // }))));
+        break;
+
+      case ActionTypes.UPDATE_EMPLOYEE:
+        let employee = action.employee;
+        let allSkills = state.get('skills').toJS();
+        let gender = state.get('gender').toJS();
+        return state.update('employeeList', (list) => {
+          let index = list.findIndex(e => e.id == employee.id);
+          return list.update(index, empl => (new Employee()).fromRaw(employee, allSkills, gender));
+        });
 
       case ActionTypes.DELETE_EMPLOYEE:
         return state.update('employeeList', (list) => {
@@ -61,19 +48,19 @@ class EmployeeStore extends ReduceStore {
           return list.delete(index)
         });
 
-      // case ActionTypes.OPEN_EMPLOYEE:
-      //   // debugger;
-      //   let employeeId = action.id;
-      //   if (typeof employeeId != 'undefined') {
-      //     let index = state.get('employeeList').findIndex(e => e.get('id') == action.id);
-      //     if (index != -1) {
-      //       return state.set('openedEmployeeId', action.id);
-      //     }
-      //   }
-      //   return state;
-      //
-      // case ActionTypes.CLOSE_EMPLOYEE:
-      //   return state.set('openedEmployeeId', null);
+        // case ActionTypes.OPEN_EMPLOYEE:
+        //   // debugger;
+        //   let employeeId = action.id;
+        //   if (typeof employeeId != 'undefined') {
+        //     let index = state.get('employeeList').findIndex(e => e.get('id') == action.id);
+        //     if (index != -1) {
+        //       return state.set('openedEmployeeId', action.id);
+        //     }
+        //   }
+        //   return state;
+        //
+        // case ActionTypes.CLOSE_EMPLOYEE:
+        //   return state.set('openedEmployeeId', null);
 
       default:
         return state;

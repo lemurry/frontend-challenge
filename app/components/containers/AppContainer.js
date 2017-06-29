@@ -24,12 +24,6 @@ function getState() {
     let newEmployeeId = store.newEmployeeId;
     newEmployee = (newEmployeeId != null) ? store.employeeList.find(e => e.id == newEmployeeId) : null;
   };
-  // let openedEmployee;
-  // if (Object.getOwnPropertyNames(store).length > 0 && openedEmployeeId != null) {
-  //   openedEmployee = store.employeeList.find(e => e.id == openedEmployeeId);
-  // } else {
-  //   openedEmployee = null;
-  // }
 
   return {
     store: store,
@@ -38,6 +32,7 @@ function getState() {
 
     onGetWholeState: ActionCreator.getWholeState,
     onAdd: ActionCreator.addEmployee,
+    onEdit: ActionCreator.editEmployee,
     onDelete: ActionCreator.deleteEmployee,
     onOpen: ActionCreator.openEmployee,
     onClose: ActionCreator.closeEmployee,
