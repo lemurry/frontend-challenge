@@ -4,8 +4,8 @@ import ReactDOM from 'react-dom';
 import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
 
-export default function CancelDialog (props) {
-  const cancelActions = [
+export default function AppDialog (props) {
+  const actions = [
     <FlatButton
       label="NO"
       primary={true}
@@ -21,12 +21,12 @@ export default function CancelDialog (props) {
 
     return (
       <Dialog
-        title="Cancel changes?"
-        actions={cancelActions}
+        title={props.title}
+        actions={actions}
         modal={false}
         open={props.isOpened}
         onRequestClose={props.onClose}>
-          Are you sure you want to cancel changes?
+          {props.message}
       </Dialog>
     )
 }

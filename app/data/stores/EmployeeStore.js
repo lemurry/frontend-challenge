@@ -44,7 +44,7 @@ class EmployeeStore extends ReduceStore {
 
       case ActionTypes.DELETE_EMPLOYEE:
         return state.update('employeeList', (list) => {
-          let index = list.findIndex(e => e.get('id') == action.id);
+          let index = list.findIndex(e => e.id == action.id);
           return list.delete(index)
         });
 

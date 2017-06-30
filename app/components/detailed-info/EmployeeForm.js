@@ -6,8 +6,8 @@ import Employee from '../../data/classes/Employee.js';
 import AppAutoComplete from '../elements/AppAutoComplete.js'
 import AppDatePicker from '../elements/AppDatePicker.js'
 import AppSelect from '../elements/AppSelect.js'
-import CancelDialog from '../elements/CancelDialog.js'
-import Dialog from 'material-ui/Dialog';
+import AppDialog from '../elements/AppDialog.js'
+import AppNotification from '../elements/AppNotification.js'
 
 export default class EmployeeForm extends Component {
   constructor(props) {
@@ -136,15 +136,9 @@ export default class EmployeeForm extends Component {
           </div>
 
         </div>
-        <Dialog
-          title="Invalid data!"
-          modal={false}
-          open={this.state.invalidDataDialogOpen}
-          onRequestClose={() => this.setState({invalidDataDialogOpen: false})}>
-            Check first name, last name and gender to be filled!
-        </Dialog>
 
-        <CancelDialog isOpened={this.state.cancelDialogOpen} onYes={() => this.props.onCancel()} onNo={() => this.setState({cancelDialogOpen: false})} onClose={() => this.setState({cancelDialogOpen: false})} />
+        <AppNotification isOpened={this.state.invalidDataDialogOpen} onClose={() => this.setState({invalidDataDialogOpen: false})} title="Invalid data!" message="Check first name, last name and gender to be filled!" />
+        <AppDialog isOpened={this.state.cancelDialogOpen} onYes={() => this.props.onCancel()} onNo={() => this.setState({cancelDialogOpen: false})} onClose={() => this.setState({cancelDialogOpen: false})} title="Cancel changes?" message="Are you sure you want to cancel changes?" />
       </div>
     )
   }
