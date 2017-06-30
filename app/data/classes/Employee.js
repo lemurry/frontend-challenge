@@ -30,4 +30,8 @@ export default class Employee {
   hasRequiredSkills(requiredSkills) {
     return requiredSkills.every(skill => this.skills.map(s => s.id).includes(skill));
   }
+
+  matchesSearchString(searchString) {
+    return this.firstName.toLowerCase().includes(searchString.toLowerCase()) || this.lastName.toLowerCase().includes(searchString.toLowerCase());
+  }
 };

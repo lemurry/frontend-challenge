@@ -11,17 +11,20 @@ export class EmployeeList extends Component {
     super(props);
 
     this.state = {
-      optionsOpened: true,
+      optionsOpened: false,
       selectedGender: null,
-      selectedSkills: []
+      selectedSkills: [],
+      searchString: ''
     };
 
     this.addEmployee = this.addEmployee.bind(this);
     this.toggleOptions = this.toggleOptions.bind(this);
     this.chooseGender = this.chooseGender.bind(this);
     this.chooseSkills = this.chooseSkills.bind(this);
+    this.setSearchString = this.setSearchString.bind(this);
     this.clearGender = this.clearGender.bind(this);
     this.clearSkills = this.clearSkills.bind(this);
+    this.clearSearchString = this.clearSearchString.bind(this);
   }
 
   addEmployee() {
@@ -41,20 +44,30 @@ export class EmployeeList extends Component {
     this.setState({selectedSkills: value})
   }
 
-  clearGender(value) {
+    setSearchString(searchString) {
+      this.setState({searchString: searchString})
+    }
+
+  clearGender() {
     this.setState({selectedGender: null})
   }
 
-  clearSkills(value) {
+  clearSkills() {
     this.setState({selectedSkills: []})
+  }
+
+  clearSearchString() {
+    this.setState({searchString: ''})
   }
 
   render() {
     const selectedSkills = this.state.selectedSkills;
     const selectedGender = this.state.selectedGender;
+    const searchString = this.state.searchString;
     const rows = this.props.store.employeeList
       .filter(employee => employee.hasRequiredSkills(selectedSkills))
-      .filter(employee => this.state.selectedGender ? employee.gender.id == selectedGender : true)
+      .filter(employee => this.state.selectedGender != null ? employee.gender.id == selectedGender : true)
+      .filter(employee => employee.matchesSearchString(searchString))
       .map((employee) => {
       // let opened = employee.id == props.openedEmployee.id; opened={opened}
         return <EmployeeListItem employee={employee} key={employee.id} {...this.props}/>
@@ -64,7 +77,9 @@ export class EmployeeList extends Component {
       chooseGender: this.chooseGender,
       clearGender: this.clearGender,
       chooseSkills: this.chooseSkills,
-      clearSkills: this.clearSkills
+      clearSkills: this.clearSkills,
+      setSearchString: this.setSearchString,
+      clearSearchString: this.clearSearchString
     }
 
     return (

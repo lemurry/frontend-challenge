@@ -48,8 +48,7 @@ export function EmployeeListItem(props) {
       <div className="list-item__avatar"></div>
       <div className="list-item__info-container">
         <div className="list-item__name">
-          {employee.firstName}
-          {employee.lastName}
+          {employee.firstName} {employee.lastName}
         </div>
         <div className="list-item__status">
           {employee.status}
