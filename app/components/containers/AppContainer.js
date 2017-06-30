@@ -1,5 +1,7 @@
 import React from 'react';
-import {Container} from 'flux/utils';
+import {
+  Container
+} from 'flux/utils';
 import Immutable from 'immutable';
 
 import App from '../App.js';
@@ -18,7 +20,7 @@ function getState() {
   let openedEmployeeId = detailedInfo.openedEmployeeId;
 
   let openedEmployee, newEmployee;
-  if (Object.getOwnPropertyNames(store).length > 0){
+  if (Object.getOwnPropertyNames(store).length > 0) {
     openedEmployee = store.employeeList.find(e => e.id == openedEmployeeId) || null;
 
     let newEmployeeId = store.newEmployeeId;

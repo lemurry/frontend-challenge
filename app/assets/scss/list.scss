@@ -7,9 +7,50 @@
   z-index: 1;
   border-right: 1px solid #c2c2c2;
   overflow: auto;
+
+  &__add-button {
+    @extend .button;
+    margin: 15px auto;
+  }
+
+  &__options-button{
+    width: 100%;
+    color: $button-color;
+    font-size: 23px;
+    padding: 20px;
+    text-transform: uppercase;
+    text-align: center;
+    cursor: pointer;
+    box-shadow: 1px 1px 4px 1px $border-color;
+  }
 }
 
-.add-button {
-  @extend .button;
-  margin: 15px auto;
+.options {
+  height: auto;
+  visibility: visible;
+  opacity: 1;
+  transition: all 2s ease-out;
+  border-bottom: 1px solid $border-color;
+
+  &.hidden {
+    height: 0;
+    visibility: hidden;
+    opacity: 0;
+  }
+
+  &__tittle{
+    font-size: 18px;
+    padding: 10px;
+    text-transform: uppercase;
+  }
+
+  &__section{
+
+  }
+}
+
+.search-area{
+  display: flex;
+  flex-direction: row;
+
 }

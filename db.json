@@ -26,7 +26,7 @@
         2,
         4
       ],
-      "gender": 1,
+      "gender": 0,
       "dateOfBirth": "2017-06-27T16:20:07.462Z",
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
       "profileFilledPercentage": 20
@@ -47,20 +47,7 @@
     {
       "id": 4,
       "firstName": "First",
-      "lastName": "Last",
-      "status": "some text",
-      "skills": [
-        3
-      ],
-      "gender": 1,
-      "dateOfBirth": "2017-06-27T16:20:07.462Z",
-      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-      "profileFilledPercentage": 70
-    },
-    {
-      "id": 5,
-      "firstName": "First",
-      "lastName": "Last",
+      "lastName": "Lastcxergcvx gfc",
       "status": "some text",
       "skills": [
         3
@@ -78,7 +65,7 @@
       "skills": [
         3
       ],
-      "gender": 1,
+      "gender": 0,
       "dateOfBirth": "2017-06-27T16:20:07.462Z",
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
       "profileFilledPercentage": 70

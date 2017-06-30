@@ -1,14 +1,14 @@
 export default class Employee {
-  constructor(id){
+  constructor(id) {
     this.id = id || null,
-    this.firstName = '',
-    this.lastName = '',
-    this.status = '',
-    this.skills = [],
-    this.gender = {},
-    this.dateOfBirth = new Date(),
-    this.description = '',
-    this.profileFilledPercentage = 0
+      this.firstName = '',
+      this.lastName = '',
+      this.status = '',
+      this.skills = [],
+      this.gender = {},
+      this.dateOfBirth = new Date(),
+      this.description = '',
+      this.profileFilledPercentage = 0
   }
 
   fromRaw(rawEmployee, skillList, genders) {
@@ -25,5 +25,9 @@ export default class Employee {
     this.gender = genders[rawEmployee.gender];
     this.dateOfBirth = new Date(rawEmployee.dateOfBirth);
     return this
+  }
+
+  hasRequiredSkills(requiredSkills) {
+    return requiredSkills.every(skill => this.skills.map(s => s.id).includes(skill));
   }
 };
