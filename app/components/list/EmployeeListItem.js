@@ -8,9 +8,9 @@ export function EmployeeListItem(props) {
   const skills = employee.skills.map(skill => <div className="list-item__skill" key={skill.id}>
     {skill.name}
   </div>);
-  // const className = props.opened
-  //   ? "list-item opened"
-  //   : "list-item";
+  const className = props.opened
+    ? "list-item opened"
+    : "list-item";
 
   const deleteEmployee = () => props.onDelete(employee.id);
 
@@ -43,7 +43,8 @@ export function EmployeeListItem(props) {
   }
 
   return (
-    <div className="list-item" onClick={openEmployee}>
+    <div className={className}>
+    <div className="list-item__content" onClick={openEmployee}>
       <div className="list-item__profile-filled" style={profileFilledStyle()}/>
       <div className="list-item__avatar"></div>
       <div className="list-item__info-container">
@@ -57,6 +58,7 @@ export function EmployeeListItem(props) {
           {skills}
         </div>
       </div>
+    </div>
     </div>
   );
 }

@@ -21,15 +21,15 @@
       "firstName": "John",
       "lastName": "Doe",
       "status": "some text",
+      "dateOfBirth": "2017-06-27T16:20:07.462Z",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "profileFilledPercentage": 20,
+      "gender": 0,
       "skills": [
         1,
         2,
         4
-      ],
-      "gender": 0,
-      "dateOfBirth": "2017-06-27T16:20:07.462Z",
-      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-      "profileFilledPercentage": 20
+      ]
     },
     {
       "id": 3,
@@ -62,9 +62,53 @@
       "profileFilledPercentage": 70
     },
     {
-      "id": 6,
+      "id": 5,
       "firstName": "Ron",
       "lastName": "Weasley",
+      "status": "some text",
+      "skills": [
+        3
+      ],
+      "gender": 0,
+      "dateOfBirth": "2017-06-27T16:20:07.462Z",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "profileFilledPercentage": 70
+    },
+    {
+      "id": 6,
+      "firstName": "Dobby",
+      "lastName": "The House Elf",
+      "status": "some text",
+      "skills": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        7
+      ],
+      "gender": 0,
+      "dateOfBirth": "2017-06-27T16:20:07.462Z",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "profileFilledPercentage": 100
+    },
+    {
+      "id": 7,
+      "firstName": "Janel",
+      "lastName": "Doe",
+      "status": "some text",
+      "skills": [
+        3
+      ],
+      "gender": 1,
+      "dateOfBirth": "2017-06-27T16:20:07.462Z",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "profileFilledPercentage": 70
+    },
+    {
+      "id": 8,
+      "firstName": "Jon",
+      "lastName": "Doe",
       "status": "some text",
       "skills": [
         3

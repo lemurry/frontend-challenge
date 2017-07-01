@@ -1,18 +1,24 @@
 .list-item {
+  width: 100%;
   position: relative;
-  $border-color: #d9d2d5;
-  display: flex;
-  align-items: flex-start;
-  flex-direction: row;
-  padding: 34px 10px;
-  border-bottom: 3px solid $border-color;
 
   &.opened {
-    color: red;
+    background-color: $page-color;
   }
 
   &:first-child {
-    border-top: 2px solid $border-color;
+    border-top: none;
+  }
+
+  &__content {
+    padding: 34px 10px;
+    $border-color: #d9d2d5;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: row;
+    border-bottom: 3px solid $border-color;
+    width: calc(100% - 20px);
+    cursor: pointer;
   }
 
   &__profile-filled {

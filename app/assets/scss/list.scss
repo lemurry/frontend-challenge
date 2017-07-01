@@ -1,3 +1,9 @@
+$list-button-height: 74px;
+$options-height: 290px;
+$list-height-full: calc(100% - 2 * #{$list-button-height} - 1px);
+$list-height-short: calc(100% - 2 * #{$list-button-height} - #{$options-height});
+$options-opened-transition: all 0.3s ease-in;
+
 .list {
   flex: 0 1 26.5%;
   min-width: 350px;
@@ -6,32 +12,52 @@
   box-shadow: 0 0 7px 2px $shadow-color;
   z-index: 1;
   border-right: 1px solid #c2c2c2;
-  overflow: auto;
+
+  &__items-wrapper {
+    width: calc(100% + 20px);
+    height: $list-height-full;
+    transition: $options-opened-transition;
+
+    &--short{
+      height: $list-height-short;
+    }
+
+  }
+
+  &__items-container {
+    width: 100%;
+    height: 100%;
+    overflow-y: hidden;
+  }
+
+  &__button {
+    width: 100%;
+    height: $list-button-height;
+    cursor: pointer;
+    border-bottom: 2px solid $border-color;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 
   &__add-button {
     @include button (44px);
-    margin: 15px auto;
   }
 
-  &__options-button{
-    width: 100%;
+  &__options-button {
     color: $button-color;
     font-size: 23px;
-    padding: 20px;
     text-transform: uppercase;
-    text-align: center;
-    cursor: pointer;
-    box-shadow: 1px 1px 4px 1px $border-color;
   }
 }
 
 .options {
   visibility: visible;
   opacity: 1;
-  max-height: 300px;
-  transition: all 1s ease-in;
+  max-height: $options-height;
+  transition: $options-opened-transition;
   border-bottom: 1px solid $border-color;
-  box-shadow: inset 0 -1px 2px $border-color;
+  box-shadow: inset 0 0 2px $border-color;
 
   &.hidden {
     visibility: hidden;
@@ -39,12 +65,12 @@
     max-height: 0;
   }
 
-  &__tittle{
+  &__tittle {
     font-size: 18px;
     text-transform: uppercase;
   }
 
-  &__section{
+  &__section {
     padding: 15px;
   }
 
@@ -54,19 +80,18 @@
     align-items: center;
   }
 
-  &__clear-button{
+  &__clear-button {
     @include button(20px);
     transform: rotate(45deg);
     margin-left: 15px;
     cursor: pointer;
   }
 
-  &__field{
+  &__field {
     flex: 1 1 85%;
   }
 
-  &__input{
-    // width: 100%;
+  &__input {
     font-size: 16px;
     border: none;
     border-bottom: 1px solid $border-color;

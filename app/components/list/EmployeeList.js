@@ -25,9 +25,11 @@ export class EmployeeList extends Component {
     this.clearGender = this.clearGender.bind(this);
     this.clearSkills = this.clearSkills.bind(this);
     this.clearSearchString = this.clearSearchString.bind(this);
+    this.onScroll = this.onScroll.bind(this);
   }
 
   addEmployee() {
+    this.props.onClose();
     this.props.history.push(`/add`);
   }
 
@@ -60,17 +62,27 @@ export class EmployeeList extends Component {
     this.setState({searchString: ''})
   }
 
+  onScroll(event) {
+    // debugger;
+    if (event.deltaY > 0){
+      this.refs.scrollable.scrollTop += 20;
+    }
+    else {
+      this.refs.scrollable.scrollTop -= 20;
+    }
+  }
+
   render() {
     const selectedSkills = this.state.selectedSkills;
     const selectedGender = this.state.selectedGender;
     const searchString = this.state.searchString;
+    const openedEmployeeId = this.props.openedEmployee != null ? this.props.openedEmployee.id : null;
     const rows = this.props.store.employeeList
       .filter(employee => employee.hasRequiredSkills(selectedSkills))
       .filter(employee => this.state.selectedGender != null ? employee.gender.id == selectedGender : true)
       .filter(employee => employee.matchesSearchString(searchString))
       .map((employee) => {
-      // let opened = employee.id == props.openedEmployee.id; opened={opened}
-        return <EmployeeListItem employee={employee} key={employee.id} {...this.props}/>
+      return <EmployeeListItem employee={employee} key={employee.id} opened={employee.id == openedEmployeeId} {...this.props}/>
     });
 
     const actions = {
@@ -84,14 +96,18 @@ export class EmployeeList extends Component {
 
     return (
       <div className="list">
-        <div className="list__options-button" onClick={this.toggleOptions}>
-          Options
+        <div className="list__button" onClick={this.toggleOptions}>
+          <div className="list__options-button"> Options </div>
         </div>
         <Options state={this.state} actions={actions} skillList={this.props.store.skills}/>
 
-        <div className="list__add-button" onClick={this.addEmployee}/>
-        <div>
+        <div className="list__button" onClick={this.addEmployee}>
+          <div className="list__add-button"/>
+        </div>
+        <div className={this.state.optionsOpened ? "list__items-wrapper list__items-wrapper--short" : "list__items-wrapper"}>
+        <div className="list__items-container" ref="scrollable" onWheel={this.onScroll}>
           {rows}
+          </div>
         </div>
       </div>
     )

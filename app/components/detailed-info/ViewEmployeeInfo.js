@@ -39,8 +39,7 @@ export class ViewEmployeeInfo extends Component {
         <div className="view-info">
           <div className="view-info__main-info">
             <div className="view-info__name">
-              {employee.firstName}
-              {employee.lastName}
+              {employee.firstName} {employee.lastName}
             </div>
             <div className="view-info__bio">
               ({employee.gender.name}, {formatedDate})
