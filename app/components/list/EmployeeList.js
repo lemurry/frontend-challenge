@@ -76,7 +76,7 @@ count() {
   for(var i = 0; i < 5; i++){
     function f(j) {console.log(j)};
     f = f.bind(null, i);
-    setTimeout(f(i));
+    setTimeout(f);
   }
 }
 
@@ -116,7 +116,7 @@ count() {
           <div className="list__add-button"/>
         </div>
         <div className={this.state.optionsOpened ? "list__items-wrapper list__items-wrapper--short" : "list__items-wrapper"}>
-        <div className="list__items-container" ref="scrollable" onWheel={this.onScroll}>
+        <div ref="scrollable" className="list__items-container" onWheel={this.onScroll}>
           {rows}
           </div>
         </div>

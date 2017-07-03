@@ -13,7 +13,7 @@ export default function AddEmployee (props) {
     const cancelChanges = () => props.history.push(`view`);
 
     const editEmployee = (employee) => {
-      props.onEdit(new DBEmployee(employee))
+      props.onEdit((new DBEmployee).toRaw(employee))
     }
 
     return (

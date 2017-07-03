@@ -28,7 +28,7 @@ export default class Main extends Component {
     if (Object.getOwnPropertyNames(store).length == 0) {
       return null;
     }
-    
+
     return (
       <MuiThemeProvider>
         <div className="page">

@@ -25,10 +25,14 @@ class EmployeeStore extends ReduceStore {
         let skillList = action.res.data.skills;
         let genders = action.res.data.gender;
         newState.employeeList = action.res.data.employeeList.map(employee => (new Employee()).fromRaw(employee, skillList, genders));
+
+        if (Object.getOwnPropertyNames(newState.newEmployee).length > 0) {
+          newState.newEmployee = (new Employee()).fromRaw(action.res.data.newEmployee, skillList, genders);
+        }
         return Immutable.fromJS(newState).toOrderedMap();
 
-      case ActionTypes.START_ADDING_EMPLOYEE:
-        return state.set('newEmployeeId', action.id)
+      case ActionTypes.CREATE_NEW_EMPLOYEE:
+        return state.set('newEmployee', (new Employee()).fromRaw(action.employee))
 
       case ActionTypes.ADD_EMPLOYEE:
         break;
@@ -47,20 +51,6 @@ class EmployeeStore extends ReduceStore {
           let index = list.findIndex(e => e.id == action.id);
           return list.delete(index)
         });
-
-        // case ActionTypes.OPEN_EMPLOYEE:
-        //   // debugger;
-        //   let employeeId = action.id;
-        //   if (typeof employeeId != 'undefined') {
-        //     let index = state.get('employeeList').findIndex(e => e.get('id') == action.id);
-        //     if (index != -1) {
-        //       return state.set('openedEmployeeId', action.id);
-        //     }
-        //   }
-        //   return state;
-        //
-        // case ActionTypes.CLOSE_EMPLOYEE:
-        //   return state.set('openedEmployeeId', null);
 
       default:
         return state;

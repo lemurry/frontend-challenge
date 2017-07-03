@@ -5,42 +5,24 @@ import axios from 'axios';
 
 const Actions = {
   getWholeState() {
-    // debugger;
     axios.get(`http://localhost:3000/db`).then(res => {
-      // debugger;
       AppDispatcher.dispatch({
         type: ActionTypes.GET_WHOLE_STATE,
         res
       });
-      // debugger;
     })
   },
 
-  startAddingEmployee(employee) {
-
-
-    // axios.get(`http://localhost:3000/newEmployee`).then(res => {
-    //   if (res.data.id != null) {
-    //     // debugger;
-    //     AppDispatcher.dispatch({
-    //       type: ActionTypes.START_ADDING_EMPLOYEE,
-    //       employee: res.data
-    //     });
-    //   }
-    //   else {
-    //     axios.post(`http://localhost:3000/employeelist`, employee).then(res => {
-    //       debugger;
-    //       axios.post(`http://localhost:3000/newEmployee`, res.data).then(res => {
-    //         AppDispatcher.dispatch({
-    //           type: ActionTypes.START_ADDING_EMPLOYEE,
-    //           employee: res.data
-    //         });
-    //       });
-    //     })
-    //   }
-    // })
-
-
+  createNewEmployee(employee) {
+      axios.post(`http://localhost:3000/employeelist`, employee).then(res => {
+      const newEmployee = res.data;
+          axios.post(`http://localhost:3000/newEmployee`, newEmployee).then(res => {
+          AppDispatcher.dispatch({
+            type: ActionTypes.CREATE_NEW_EMPLOYEE,
+            employee: res.data
+          });
+        })
+      })
   },
 
   cancelAddingEmployee(employee) {

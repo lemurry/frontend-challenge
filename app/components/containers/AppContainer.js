@@ -18,13 +18,10 @@ function getState() {
   let store = EmployeeStore.getState().toJS();
   let detailedInfo = DetailedInfoStore.getState().toJS();
   let openedEmployeeId = detailedInfo.openedEmployeeId;
-
   let openedEmployee, newEmployee;
   if (Object.getOwnPropertyNames(store).length > 0) {
     openedEmployee = store.employeeList.find(e => e.id == openedEmployeeId) || null;
-
-    let newEmployeeId = store.newEmployeeId;
-    newEmployee = (newEmployeeId != null) ? store.employeeList.find(e => e.id == newEmployeeId) : null;
+    newEmployee = store.newEmployee || null;
   };
 
   return {
@@ -39,7 +36,7 @@ function getState() {
     onOpen: ActionCreator.openEmployee,
     onClose: ActionCreator.closeEmployee,
 
-    onStartAdding: ActionCreator.startAddingEmployee,
+    onCreateNewEmployee: ActionCreator.createNewEmployee,
     onCancelAdding: ActionCreator.cancelAddingEmployee,
   };
 }

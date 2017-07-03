@@ -98,13 +98,9 @@ export default class EmployeeForm extends Component {
   render() {
     const employee = this.state.employee;
     const skillList = this.props.skillList;
-
     return (
       <div className="detailed-info-container">
         <div className="left-column">
-        <div className="filled-profile">
-          Id: {employee.id}
-        </div>
           <div className="avatar"/>
           <div className="filled-profile">
             Filled profile: {employee.profileFilledPercentage()}%
