@@ -46,9 +46,9 @@ export class EmployeeList extends Component {
     this.setState({selectedSkills: value})
   }
 
-    setSearchString(searchString) {
-      this.setState({searchString: searchString})
-    }
+  setSearchString(searchString) {
+    this.setState({searchString: searchString})
+  }
 
   clearGender() {
     this.setState({selectedGender: null})
@@ -72,6 +72,15 @@ export class EmployeeList extends Component {
     }
   }
 
+count() {
+  for(var i = 0; i < 5; i++){
+    function f(j) {console.log(j)};
+    f = f.bind(null, i);
+    setTimeout(f(i));
+  }
+}
+
+
   render() {
     const selectedSkills = this.state.selectedSkills;
     const selectedGender = this.state.selectedGender;
@@ -93,6 +102,8 @@ export class EmployeeList extends Component {
       setSearchString: this.setSearchString,
       clearSearchString: this.clearSearchString
     }
+
+    // this.count();
 
     return (
       <div className="list">

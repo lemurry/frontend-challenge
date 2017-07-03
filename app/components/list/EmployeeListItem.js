@@ -19,21 +19,8 @@ export function EmployeeListItem(props) {
     props.onOpen(employee.id);
   }
 
-  const countProfileFilledPercentage = () => {
-    let res = 0;
-    if (employee.firstName) res += 5;
-    if (employee.lastName) res += 5;
-    if (employee.photo) res += 20;
-    if (employee.gender) res += 5;
-    if (employee.dateOfBirth) res += 5;
-    if (employee.status) res += 10;
-    if (employee.description) res += 10;
-    employee.skills.forEach(s => res += 5);
-    return res
-  }
-
   const profileFilledStyle = () => {
-    let profileFilledPercentage = countProfileFilledPercentage();
+    let profileFilledPercentage = employee.profileFilledPercentage();
     //hue of red = 0, hue of green = 120
     let hue = profileFilledPercentage / 100 * (120 - 0);
     let lightColor = `hsl(${hue}, 100%, 75%)`;

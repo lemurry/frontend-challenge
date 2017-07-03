@@ -107,7 +107,7 @@ export default class EmployeeForm extends Component {
         </div>
           <div className="avatar"/>
           <div className="filled-profile">
-            Filled profile: {employee.profileFilledPercentage}%
+            Filled profile: {employee.profileFilledPercentage()}%
           </div>
         </div>
 
