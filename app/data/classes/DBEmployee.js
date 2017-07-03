@@ -14,7 +14,6 @@ export default class DBEmployee {
     let {skills, gender, ...rest} = employee;
     let result = {...rest, gender: gender.id, skills: skills.map(s => s.id) };
     Object.assign(this, result);
-    debugger;
     return this;
   }
 };

@@ -41,7 +41,6 @@ export default class AppAutoComplete extends Component {
     }
 
     const skillList = this.props.skillList.filter(s => !this.props.skills.map(s => s.id).includes(s.id)).map(s => s.name);
-    // debugger;
     const skills = this.props.skills.map(skill => <Chip onRequestDelete={() => this.deleteSkill(skill)} className="employee-form__skill" labelStyle={styles.skillStyle} key={skill.id}>
       {skill.name}
     </Chip>);

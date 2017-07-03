@@ -63,7 +63,6 @@ export class EmployeeList extends Component {
   }
 
   onScroll(event) {
-    // debugger;
     if (event.deltaY > 0){
       this.refs.scrollable.scrollTop += 20;
     }
@@ -71,15 +70,6 @@ export class EmployeeList extends Component {
       this.refs.scrollable.scrollTop -= 20;
     }
   }
-
-count() {
-  for(var i = 0; i < 5; i++){
-    function f(j) {console.log(j)};
-    f = f.bind(null, i);
-    setTimeout(f);
-  }
-}
-
 
   render() {
     const selectedSkills = this.state.selectedSkills;
@@ -102,8 +92,6 @@ count() {
       setSearchString: this.setSearchString,
       clearSearchString: this.clearSearchString
     }
-
-    // this.count();
 
     return (
       <div className="list">

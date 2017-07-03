@@ -23,11 +23,6 @@ export default class Employee {
     this.gender = (rawEmployee.gender) ? genders[rawEmployee.gender] : {};
     this.dateOfBirth = new Date(rawEmployee.dateOfBirth);
     return this
-
-
-    // let {skills, gender, dateOfBirth, ...rest} = rawEmployee;
-    // let result = {...rest, gender: genders[gender], skills: skills.map(skill => skillList[skill]), dateOfBirth: new Date(dateOfBirth)};
-    // return Object.assign(new Employee(), result);
   }
 
   hasRequiredSkills(requiredSkills) {

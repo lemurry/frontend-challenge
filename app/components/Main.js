@@ -18,7 +18,6 @@ export default class Main extends Component {
   }
 
   componentWillMount() {
-    // debugger;
     this.props.onGetWholeState();
   }
 

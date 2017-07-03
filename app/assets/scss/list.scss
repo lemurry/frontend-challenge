@@ -18,10 +18,9 @@ $options-opened-transition: all 0.3s ease-in;
     height: $list-height-full;
     transition: $options-opened-transition;
 
-    &--short{
+    &--short {
       height: $list-height-short;
     }
-
   }
 
   &__items-container {
